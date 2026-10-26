@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ page_data.title if page_data else "Sumeru Technologies | Enterprise Technology, Consulting & IT Solutions" }}</title>
+  <meta name="description" content="{{ page_data.description if page_data else 'Sumeru Technologies provides consulting, systems integration, enterprise solutions, information management, professional services and outsourcing solutions for organizations worldwide.' }}"/>
+  <link rel="canonical" href="{{ page_data.canonical if page_data else 'https://sumerutechnologies.com/' }}"/>
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="{{ page_data.title if page_data else 'Sumeru Technologies' }}"/>
+  <meta property="og:description" content="{{ page_data.description if page_data else 'Enterprise Technology, Consulting & Systems Integration Since 1994.' }}"/>
+  <meta property="og:url" content="{{ page_data.canonical if page_data else 'https://sumerutechnologies.com/' }}"/>
+  <meta property="og:site_name" content="Sumeru Technologies LLC"/>
+  <meta property="og:image" content="https://sumerutechnologies.com/wp-content/uploads/2021/10/SUMERU-TECHNOLOGIES-LLC-PNG_new_name.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="{{ page_data.title if page_data else 'Sumeru Technologies' }}"/>
+  <meta name="twitter:description" content="{{ page_data.description if page_data else 'Enterprise Technology, Consulting & IT Solutions.' }}"/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/sumeru/SUMERU_New-mobile.png"/>
+  <link rel="apple-touch-icon" href="/static/images/sumeru/SUMERU_New-mobile.png"/>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Master Corporate Stylesheet -->
+  <link rel="stylesheet" href="/static/css/sumeru.css"/>
+  <link rel="stylesheet" href="/static/css/custom.css"/>
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sumerutechnologies.com/#organization",
+        "name": "Sumeru Technologies LLC",
+        "url": "https://sumerutechnologies.com/",
+        "logo": "https://sumerutechnologies.com/wp-content/uploads/2021/10/SUMERU-TECHNOLOGIES-LLC-PNG_new_name.png",
+        "foundingDate": "1994",
+        "description": "Global software services company providing consulting, systems integration and outsourcing solutions.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4580 Weaver Parkway, Suite 206",
+          "addressLocality": "Warrenville",
+          "addressRegion": "IL",
+          "postalCode": "60555",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-331-888-9060",
+          "contactType": "corporate inquiries",
+          "email": "HR@sumerutechnologies.com"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sumerutechnologies.com/#website",
+        "url": "https://sumerutechnologies.com/",
+        "name": "Sumeru Technologies",
+        "publisher": {"@id": "https://sumerutechnologies.com/#organization"}
+      }
+    ]
+  }
+  </script>
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+
+  <!-- =======================================================================
+       HEADER (Sticky, clean corporate styling)
+       ======================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="sumeru-container header-container">
+      
+      <!-- Brand Logo (Prominent, authentic Sumeru logo) -->
+      <a href="/" class="header-logo-link" title="Sumeru Technologies LLC — Home">
+        <img src="/static/images/sumeru/SUMERU-TECHNOLOGIES-LLC-PNG_new_name.png" alt="Sumeru Technologies LLC Logo" class="header-logo" width="240" height="48"/>
+      </a>
+
+      <!-- Desktop Navigation with Mega Menus -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          
+          <!-- ABOUT -->
+          <li class="nav-item">
+            <a href="/about" class="nav-link">
+              ABOUT
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-inner cols-3">
+                <div class="mega-col">
+                  <div class="mega-col-header">OUR ORGANIZATION</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/about">About Sumeru (Est. 1994)</a></li>
+                    <li class="mega-link-item"><a href="/company">Company Overview</a></li>
+                    <li class="mega-link-item"><a href="/company/team">Leadership &amp; Architects</a></li>
+                    <li class="mega-link-item"><a href="/company/quality">Quality Commitment</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-col-header">APPROACH &amp; VALUES</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/about#4d-approach">4D Business Approach (Discover, Design, Deploy, Drive)</a></li>
+                    <li class="mega-link-item"><a href="/company/partners">Technology Partners</a></li>
+                    <li class="mega-link-item"><a href="/careers">Careers @ Sumeru</a></li>
+                    <li class="mega-link-item"><a href="/contact">Global Office Footprint</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured-card">
+                  <div>
+                    <span class="mega-featured-badge">SINCE 1994</span>
+                    <h4>30+ Years of Enterprise Delivery</h4>
+                    <p>Partner of choice for discriminating clients requiring high-end systems integration and sustainable value.</p>
+                  </div>
+                  <a href="/about" class="view-all-link">EXPLORE OUR HERITAGE &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- SERVICES ▼ -->
+          <li class="nav-item">
+            <a href="/services" class="nav-link">
+              SERVICES
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-inner">
+                
+                <!-- Col 1: Consulting -->
+                <div class="mega-col">
+                  <div class="mega-col-header"><a href="/services/consulting">CONSULTING</a></div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/services/consulting#strategy-planning">Strategy &amp; Planning</a></li>
+                    <li class="mega-link-item"><a href="/services/consulting#business-process-analysis">Business Process Analysis</a></li>
+                    <li class="mega-link-item"><a href="/services/consulting#architecture-implementation">Architecture &amp; Implementation</a></li>
+                    <li class="mega-link-item"><a href="/services/consulting#business-process-monitoring">Business Process Monitoring</a></li>
+                    <li class="mega-link-item"><a href="/services/consulting#bi-performance-management">BI &amp; Performance Management</a></li>
+                  </ul>
+                </div>
+
+                <!-- Col 2: Enterprise Solutions -->
+                <div class="mega-col">
+                  <div class="mega-col-header"><a href="/services/enterprise-solutions">ENTERPRISE SOLUTIONS</a></div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/solutions/sap">SAP Practice (S/4HANA &amp; Clean Core)</a></li>
+                    <li class="mega-link-item"><a href="/services/enterprise-solutions#oracle-applications">Oracle Applications</a></li>
+                    <li class="mega-link-item"><a href="/services/enterprise-solutions#transaction-processing">Transaction Processing</a></li>
+                    <li class="mega-link-item"><a href="/services/enterprise-solutions#systems-integration">Systems Integration (EAI)</a></li>
+                  </ul>
+                </div>
+
+                <!-- Col 3: Information Management -->
+                <div class="mega-col">
+                  <div class="mega-col-header"><a href="/services/information-management">INFORMATION MANAGEMENT</a></div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/solutions/business-intelligence">Business Intelligence</a></li>
+                    <li class="mega-link-item"><a href="/services/information-management#storage-solutions">Storage Solutions (SAN/NAS)</a></li>
+                    <li class="mega-link-item"><a href="/solutions/information-security">Information Security</a></li>
+                    <li class="mega-link-item"><a href="/services/information-management#master-data-management">Master Data Management</a></li>
+                  </ul>
+                </div>
+
+                <!-- Col 4: Outsourcing & Professional -->
+                <div class="mega-col">
+                  <div class="mega-col-header"><a href="/services/outsourcing">OUTSOURCING &amp; STAFFING</a></div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/services/outsourcing#remote-administration">Remote Administration</a></li>
+                    <li class="mega-link-item"><a href="/services/outsourcing#application-outsourcing">Application Outsourcing</a></li>
+                    <li class="mega-link-item"><a href="/services/outsourcing#offshore-center">Offshore Center (Hyderabad/Bangalore)</a></li>
+                    <li class="mega-link-item"><a href="/services/professional-services#staff-augmentation">IT Consulting &amp; Staff Augmentation</a></li>
+                  </ul>
+                </div>
+
+                <!-- Featured Card inside Mega Menu (Mygo inspiration) -->
+                <div class="mega-featured-card">
+                  <div>
+                    <span class="mega-featured-badge">WHAT WE DO</span>
+                    <h4>5 Primary Service Practices</h4>
+                    <p>From high-level strategy to 24x7 global remote administration, we ensure measurable ROI on technology investments.</p>
+                  </div>
+                  <a href="/services" class="view-all-link">VIEW ALL SERVICES &rarr;</a>
+                </div>
+
+              </div>
+            </div>
+          </li>
+
+          <!-- SOLUTIONS ▼ -->
+          <li class="nav-item">
+            <a href="/solutions" class="nav-link">
+              SOLUTIONS
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-inner cols-4">
+                <div class="mega-col">
+                  <div class="mega-col-header">ENTERPRISE PLATFORMS</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/solutions/sap">SAP Practice</a></li>
+                    <li class="mega-link-item"><a href="/services/enterprise-solutions">Enterprise Solutions</a></li>
+                    <li class="mega-link-item"><a href="/services/enterprise-solutions">Application Solutions</a></li>
+                    <li class="mega-link-item"><a href="/services/enterprise-solutions">Systems Integration</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-col-header">DATA &amp; GOVERNANCE</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/solutions/business-intelligence">Business Intelligence</a></li>
+                    <li class="mega-link-item"><a href="/services/information-management">Information Management</a></li>
+                    <li class="mega-link-item"><a href="/solutions/information-security">Information Security</a></li>
+                    <li class="mega-link-item"><a href="/services/outsourcing">Outsourcing Solutions</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-col-header">SPECIALIZED SUITES</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/solutions/sap">RISE with SAP Advisory</a></li>
+                    <li class="mega-link-item"><a href="/solutions/sap">Clean Core on SAP BTP</a></li>
+                    <li class="mega-link-item"><a href="/industries/textile-apparel">Textile &amp; Apparel (Fiber to Fashion)</a></li>
+                    <li class="mega-link-item"><a href="/industries/education">Education as a Service in SAP</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured-card">
+                  <div>
+                    <span class="mega-featured-badge">ARCHITECTURE</span>
+                    <h4>Enterprise Solutions That Scale</h4>
+                    <p>Real-time software suites designed to eliminate integration friction and support critical transaction processes.</p>
+                  </div>
+                  <a href="/solutions" class="view-all-link">EXPLORE SOLUTIONS &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- INDUSTRIES ▼ -->
+          <li class="nav-item">
+            <a href="/industries" class="nav-link">
+              INDUSTRIES
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-inner cols-4">
+                <div class="mega-col">
+                  <div class="mega-col-header">REGULATED &amp; HEAVY INDUSTRY</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/industries/healthcare">Healthcare &amp; Life Sciences</a></li>
+                    <li class="mega-link-item"><a href="/industries/oil-gas">Oil &amp; Gas (Upstream/Downstream)</a></li>
+                    <li class="mega-link-item"><a href="/industries/manufacturing">Manufacturing (Automotive &amp; Industrial)</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-col-header">SPECIALIZED VERTICALS</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/industries/education">Education (SAP LMS Solutions)</a></li>
+                    <li class="mega-link-item"><a href="/industries/textile-apparel">Textile &amp; Apparel (Fiber to Fashion)</a></li>
+                    <li class="mega-link-item"><a href="/industries/logistics">Logistics &amp; Supply Chain</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-col-header">INDUSTRY FRAMEWORKS</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/industries/healthcare">HIPAA Compliant EHR Architectures</a></li>
+                    <li class="mega-link-item"><a href="/industries/manufacturing">Enterprise MES &amp; ERP Integration</a></li>
+                    <li class="mega-link-item"><a href="/industries/textile-apparel">Pre-Configured SAP AFS Templates</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured-card">
+                  <div>
+                    <span class="mega-featured-badge">VERTICAL EXPERTISE</span>
+                    <h4>Domain-Specific Blueprints</h4>
+                    <p>Pre-configured business frameworks built on real operating conditions in 6 global sectors.</p>
+                  </div>
+                  <a href="/industries" class="view-all-link">VIEW ALL INDUSTRIES &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- RESOURCES ▼ -->
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">
+              RESOURCES
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-inner cols-3">
+                <div class="mega-col">
+                  <div class="mega-col-header">KNOWLEDGE ASSETS</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/resources#insights">Insights &amp; Articles</a></li>
+                    <li class="mega-link-item"><a href="/resources#perspectives">Technology Perspectives</a></li>
+                    <li class="mega-link-item"><a href="/resources#faqs">Enterprise FAQs</a></li>
+                    <li class="mega-link-item"><a href="/resources#downloads">Downloads &amp; Whitepapers</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-col-header">KEY PERSPECTIVES</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/resources#4d-delivery">Predictable Delivery with 4D</a></li>
+                    <li class="mega-link-item"><a href="/resources#rise-sap">RISE with SAP Evaluation</a></li>
+                    <li class="mega-link-item"><a href="/resources#hybrid-outsourcing">Hybrid Outsourcing Operational Models</a></li>
+                    <li class="mega-link-item"><a href="/resources#mdm">Master Data Management (MDM)</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured-card">
+                  <div>
+                    <span class="mega-featured-badge">PERSPECTIVES</span>
+                    <h4>Sumeru Technology Insights</h4>
+                    <p>Authoritative perspectives on enterprise software lifecycles and Clean Core practices.</p>
+                  </div>
+                  <a href="/resources" class="view-all-link">BROWSE RESOURCES &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- COMPANY ▼ -->
+          <li class="nav-item">
+            <a href="/company" class="nav-link">
+              COMPANY
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-inner cols-3">
+                <div class="mega-col">
+                  <div class="mega-col-header">ABOUT US</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/about">About Sumeru</a></li>
+                    <li class="mega-link-item"><a href="/company">Company Overview</a></li>
+                    <li class="mega-link-item"><a href="/about#4d-approach">Our Business Approach</a></li>
+                    <li class="mega-link-item"><a href="/company/quality">Quality Credo</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-col-header">PARTNERS &amp; PEOPLE</div>
+                  <ul class="mega-link-list">
+                    <li class="mega-link-item"><a href="/company/team">Leadership Team</a></li>
+                    <li class="mega-link-item"><a href="/company/partners">Our Technology Partners</a></li>
+                    <li class="mega-link-item"><a href="/careers">Careers @ Sumeru</a></li>
+                    <li class="mega-link-item"><a href="/contact">Contact Our Offices</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured-card">
+                  <div>
+                    <span class="mega-featured-badge">VALUES</span>
+                    <h4>Quality is Never an Accident</h4>
+                    <p>"It is always the result of intelligent effort." Our core credo guiding every engagement.</p>
+                  </div>
+                  <a href="/company/quality" class="view-all-link">OUR QUALITY CREDO &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions (Contact CTA) -->
+      <div class="header-actions">
+        <a href="/contact" class="btn btn-primary btn-sm">CONTACT US</a>
+        <button class="mobile-menu-toggle" aria-label="Open Mobile Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <img src="/static/images/sumeru/SUMERU_New-mobile.png" alt="Sumeru" height="36"/>
+      <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-accordion-item">
+        <button class="mobile-accordion-header">About Sumeru <span>+</span></button>
+        <div class="mobile-accordion-content">
+          <a href="/about">About Sumeru (Est. 1994)</a>
+          <a href="/company">Company Overview</a>
+          <a href="/about#4d-approach">4D Business Approach</a>
+          <a href="/company/quality">Quality Credo</a>
+        </div>
+      </div>
+      <div class="mobile-accordion-item">
+        <button class="mobile-accordion-header">Services <span>+</span></button>
+        <div class="mobile-accordion-content">
+          <a href="/services">All Services Overview</a>
+          <a href="/services/consulting">01 Consulting</a>
+          <a href="/services/enterprise-solutions">02 Enterprise Solutions</a>
+          <a href="/services/information-management">03 Information Management</a>
+          <a href="/services/outsourcing">04 Outsourcing Services</a>
+          <a href="/services/professional-services">05 Professional Services</a>
+        </div>
+      </div>
+      <div class="mobile-accordion-item">
+        <button class="mobile-accordion-header">Solutions <span>+</span></button>
+        <div class="mobile-accordion-content">
+          <a href="/solutions">Solutions Overview</a>
+          <a href="/solutions/sap">SAP Practice</a>
+          <a href="/solutions/business-intelligence">Business Intelligence</a>
+          <a href="/solutions/information-security">Information Security</a>
+        </div>
+      </div>
+      <div class="mobile-accordion-item">
+        <button class="mobile-accordion-header">Industries <span>+</span></button>
+        <div class="mobile-accordion-content">
+          <a href="/industries">Industries Overview</a>
+          <a href="/industries/healthcare">Healthcare</a>
+          <a href="/industries/oil-gas">Oil &amp; Gas</a>
+          <a href="/industries/manufacturing">Manufacturing</a>
+          <a href="/industries/education">Education</a>
+          <a href="/industries/textile-apparel">Textile &amp; Apparel</a>
+          <a href="/industries/logistics">Logistics</a>
+        </div>
+      </div>
+      <div class="mobile-accordion-item">
+        <button class="mobile-accordion-header">Company &amp; Resources <span>+</span></button>
+        <div class="mobile-accordion-content">
+          <a href="/resources">Insights &amp; FAQs</a>
+          <a href="/company/team">Leadership</a>
+          <a href="/company/partners">Partners</a>
+          <a href="/careers">Careers</a>
+          <a href="/contact">Global Offices</a>
+        </div>
+      </div>
+      <div style="margin-top: 24px;">
+        <a href="/contact" class="btn btn-primary" style="width: 100%;">CONTACT US</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =======================================================================
+       MAIN CONTENT BLOCK
+       ======================================================================= -->
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- =======================================================================
+       FOOTER (Clean, complete enterprise information architecture)
+       ======================================================================= -->
+  <footer class="site-footer">
+    <div class="sumeru-container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand-col">
+          <img src="/static/images/sumeru/SUMERU-TECHNOLOGIES-LLC-PNG_new_name.png" alt="Sumeru Technologies" class="footer-logo"/>
+          <p class="footer-desc">
+            Sumeru Technologies is a global software services company providing consulting, systems integration, and outsourcing solutions to organizations worldwide since 1994.
+          </p>
+          <div style="font-size: 0.8125rem; color: #94A3B8; line-height: 1.6;">
+            <strong>USA HQ:</strong> 4580 Weaver Pkwy, Ste 206, Warrenville, IL 60555<br/>
+            <strong>Phone:</strong> <a href="tel:+13318889060" style="color: #93C5FD;">+1 331 888 9060</a><br/>
+            <strong>Inquiries:</strong> <a href="mailto:HR@sumerutechnologies.com" style="color: #93C5FD;">HR@sumerutechnologies.com</a>
+          </div>
+        </div>
+
+        <!-- COMPANY -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">COMPANY</h4>
+          <ul class="footer-links-list">
+            <li><a href="/about">About Sumeru</a></li>
+            <li><a href="/about#4d-approach">Our 4D Approach</a></li>
+            <li><a href="/company/team">Our Team</a></li>
+            <li><a href="/company/partners">Our Partners</a></li>
+            <li><a href="/company/quality">Quality Credo</a></li>
+            <li><a href="/careers">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">SERVICES</h4>
+          <ul class="footer-links-list">
+            <li><a href="/services/consulting">Consulting</a></li>
+            <li><a href="/services/enterprise-solutions">Enterprise Solutions</a></li>
+            <li><a href="/services/information-management">Information Management</a></li>
+            <li><a href="/services/outsourcing">Outsourcing Services</a></li>
+            <li><a href="/services/professional-services">Professional Services</a></li>
+            <li><a href="/services">View All Services &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- INDUSTRIES -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">INDUSTRIES</h4>
+          <ul class="footer-links-list">
+            <li><a href="/industries/healthcare">Healthcare</a></li>
+            <li><a href="/industries/oil-gas">Oil &amp; Gas</a></li>
+            <li><a href="/industries/manufacturing">Manufacturing</a></li>
+            <li><a href="/industries/education">Education</a></li>
+            <li><a href="/industries/textile-apparel">Textile &amp; Apparel</a></li>
+            <li><a href="/industries/logistics">Logistics</a></li>
+          </ul>
+        </div>
+
+        <!-- GLOBAL OFFICES -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">GLOBAL DELIVERY</h4>
+          <ul class="footer-links-list">
+            <li><a href="/contact">Warrenville, IL (USA)</a></li>
+            <li><a href="/contact">Madrid (Spain, Europe)</a></li>
+            <li><a href="/contact">Hyderabad (Telangana, India)</a></li>
+            <li><a href="/contact">Bangalore (Karnataka, India)</a></li>
+            <li><a href="/resources">Insights &amp; FAQs</a></li>
+            <li><a href="/contact">Send Inquiry</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Legal & Copyright -->
+      <div class="footer-bottom">
+        <div>
+          &copy; {{ current_year if current_year else "2026" }} <strong>Sumeru Technologies LLC</strong>. All Rights Reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="/about">About Us</a>
+          <a href="/company/quality">Quality</a>
+          <a href="/resources">Insights</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Master JavaScript -->
+  <script src="/static/js/sumeru.js"></script>
+  {% block scripts_extra %}{% endblock %}
+</body>
+</html>

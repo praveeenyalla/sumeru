@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545"/>
+      <stop offset="50%" stop-color="#004A7F"/>
+      <stop offset="100%" stop-color="#133D6B"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#69B531"/>
+      <stop offset="100%" stop-color="#84CC16"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+  </g>
+
+  <!-- Title & Tagline -->
+  <text x="400" y="55" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="800" fill="#69B531" letter-spacing="3" text-anchor="middle">SUMERU TECHNOLOGIES • SIGNATURE METHODOLOGY</text>
+  <text x="400" y="85" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" text-anchor="middle">The Disciplined 4D Business Lifecycle</text>
+
+  <!-- Connecting Flow Line -->
+  <path d="M 120 220 L 680 220" stroke="#1F81C2" stroke-width="4" stroke-dasharray="6 6" opacity="0.6"/>
+
+  <!-- Stage 1: DISCOVER -->
+  <g transform="translate(60, 130)" filter="url(#cardShadow)">
+    <rect width="150" height="230" rx="10" fill="#FFFFFF" fill-opacity="0.08" stroke="#1F81C2" stroke-width="1.5"/>
+    <circle cx="75" cy="45" r="28" fill="#1F81C2" fill-opacity="0.2" stroke="#1F81C2" stroke-width="2"/>
+    <path d="M 68 45 A 7 7 0 1 1 82 45 A 7 7 0 1 1 68 45 M 80 50 L 87 57" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="25" y="85" width="100" height="18" rx="4" fill="#1F81C2"/>
+    <text x="75" y="98" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle">STAGE 01</text>
+    <text x="75" y="128" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">DISCOVER</text>
+    <text x="75" y="152" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Scope &amp; Debt Audit</text>
+    <text x="75" y="170" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Stakeholder Interviews</text>
+    <text x="75" y="188" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">TCO &amp; ROI Mapping</text>
+    <line x1="30" y1="205" x2="120" y2="205" stroke="#69B531" stroke-width="2"/>
+  </g>
+
+  <!-- Stage 2: DESIGN -->
+  <g transform="translate(245, 130)" filter="url(#cardShadow)">
+    <rect width="150" height="230" rx="10" fill="#FFFFFF" fill-opacity="0.08" stroke="#1F81C2" stroke-width="1.5"/>
+    <circle cx="75" cy="45" r="28" fill="#1F81C2" fill-opacity="0.2" stroke="#1F81C2" stroke-width="2"/>
+    <path d="M 65 52 L 75 35 L 85 52 Z M 65 52 L 85 52" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round"/>
+    <rect x="25" y="85" width="100" height="18" rx="4" fill="#004A7F"/>
+    <text x="75" y="98" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle">STAGE 02</text>
+    <text x="75" y="128" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">DESIGN</text>
+    <text x="75" y="152" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Clean Core Blueprint</text>
+    <text x="75" y="170" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">API &amp; Integration Flow</text>
+    <text x="75" y="188" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">High-Availability Specs</text>
+    <line x1="30" y1="205" x2="120" y2="205" stroke="#69B531" stroke-width="2"/>
+  </g>
+
+  <!-- Stage 3: DEPLOY -->
+  <g transform="translate(430, 130)" filter="url(#cardShadow)">
+    <rect width="150" height="230" rx="10" fill="#FFFFFF" fill-opacity="0.08" stroke="#1F81C2" stroke-width="1.5"/>
+    <circle cx="75" cy="45" r="28" fill="#1F81C2" fill-opacity="0.2" stroke="#1F81C2" stroke-width="2"/>
+    <path d="M 66 45 L 73 52 L 85 37" stroke="#69B531" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="25" y="85" width="100" height="18" rx="4" fill="#0B2545"/>
+    <text x="75" y="98" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" text-anchor="middle">STAGE 03</text>
+    <text x="75" y="128" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">DEPLOY</text>
+    <text x="75" y="152" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Phased Cutover</text>
+    <text x="75" y="170" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Automated Regression</text>
+    <text x="75" y="188" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Zero-Disruption Migration</text>
+    <line x1="30" y1="205" x2="120" y2="205" stroke="#69B531" stroke-width="2"/>
+  </g>
+
+  <!-- Stage 4: DRIVE -->
+  <g transform="translate(615, 130)" filter="url(#cardShadow)">
+    <rect width="150" height="230" rx="10" fill="#FFFFFF" fill-opacity="0.08" stroke="#69B531" stroke-width="1.5"/>
+    <circle cx="75" cy="45" r="28" fill="#69B531" fill-opacity="0.2" stroke="#69B531" stroke-width="2"/>
+    <path d="M 68 45 L 82 45 M 75 38 L 82 45 L 75 52" stroke="#69B531" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="25" y="85" width="100" height="18" rx="4" fill="#69B531"/>
+    <text x="75" y="98" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#0B2545" text-anchor="middle">STAGE 04</text>
+    <text x="75" y="128" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">DRIVE</text>
+    <text x="75" y="152" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">24x7 Managed Run</text>
+    <text x="75" y="170" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Binding SLA Guarantees</text>
+    <text x="75" y="188" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8" text-anchor="middle">Continuous Optimization</text>
+    <line x1="30" y1="205" x2="120" y2="205" stroke="#69B531" stroke-width="2"/>
+  </g>
+
+  <!-- Bottom SLA strip -->
+  <text x="400" y="415" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="600" fill="#38BDF8" text-anchor="middle">Single Point of Accountability • No Runaway Costs • Binding 15-Minute Sev-1 SLA</text>
+</svg>

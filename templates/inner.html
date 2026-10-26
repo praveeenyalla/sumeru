@@ -1,0 +1,684 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- =======================================================================
+     INNER PAGE HERO (Breadcrumb + Category Tag + Headline)
+     ======================================================================= -->
+<section class="inner-hero" aria-label="{{ page_data.headline if page_data else 'Page Header' }}">
+  <div class="sumeru-container">
+    
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      {% for b in page_data.breadcrumb %}
+        {% if loop.last %}
+          <span style="color: var(--sumeru-navy-dark); font-weight: 700;">{{ b.label }}</span>
+        {% else %}
+          <a href="{{ b.url }}">{{ b.label }}</a>
+          <span class="sep">/</span>
+        {% endif %}
+      {% endfor %}
+    </nav>
+
+    {% if page_data.section_tag %}
+      <div class="section-tag">{{ page_data.section_tag }}</div>
+    {% endif %}
+
+    <h1 class="inner-hero-title">{{ page_data.headline }}</h1>
+    
+    {% if page_data.subhead %}
+      <p class="inner-hero-subhead">{{ page_data.subhead }}</p>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- =======================================================================
+     INNER PAGE CONTENT & STRUCTURED SECTIONS
+     ======================================================================= -->
+<div class="inner-page-content">
+  <div class="sumeru-container">
+    <div class="inner-split-grid">
+      
+      <!-- Primary Main Column -->
+      <div class="inner-rich-text">
+        
+        <!-- Hero/Context Image if provided -->
+        {% if page_data.image %}
+          <div style="margin-bottom: 32px; border-radius: 8px; overflow: hidden; border: 1px solid #E2E8F0; box-shadow: var(--shadow-sm);">
+            <img src="{{ page_data.image }}" alt="{{ page_data.headline }}" style="width: 100%; height: auto; max-height: 380px; object-fit: cover;"/>
+          </div>
+        {% endif %}
+
+        <!-- Placeholder note if applicable (e.g., Logistics) -->
+        {% if page_data.placeholder_note %}
+          <div style="background-color: #FEF3C7; border-left: 4px solid #F59E0B; padding: 16px 20px; border-radius: 4px; margin-bottom: 28px; color: #92400E; font-size: 0.9375rem;">
+            <strong>Notice:</strong> {{ page_data.placeholder_note }}
+          </div>
+        {% endif %}
+
+        <!-- Overview Text -->
+        {% if page_data.overview %}
+          <div style="font-size: 1.0625rem; line-height: 1.8; color: #334155; margin-bottom: 32px;">
+            {{ page_data.overview | replace('\n\n', '<br/><br/>') | safe }}
+          </div>
+        {% endif %}
+
+        <!-- In-Page Topic Quick Jump (if detailed topics exist) -->
+        {% if page_data.detailed_topics %}
+          <div style="background: #F0F6FC; border: 1.5px solid #CBD5E1; border-radius: 8px; padding: 18px 20px; margin-bottom: 28px; box-shadow: var(--shadow-sm);">
+            <div style="font-size: 0.75rem; font-weight: 800; color: #004A7F; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+              <span>JUMP TO DETAILED TOPIC ANSWERS</span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              {% for topic in page_data.detailed_topics %}
+                <a href="#{{ topic.id }}" style="background: #FFFFFF; border: 1px solid #94A3B8; padding: 6px 14px; border-radius: 20px; font-size: 0.8125rem; font-weight: 700; color: #0B2545; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 4px;">
+                  <span>{{ topic.nav_label if topic.nav_label else topic.title }}</span>
+                  <span style="color: #1F81C2;">&darr;</span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- =======================================================================
+               INTERACTIVE VERTICAL RECTANGULAR CONTENT CARDS (Section 8 Requirement)
+               ======================================================================= -->
+          <section class="interactive-cards-section" aria-label="Interactive Topic Cards">
+            <div class="cards-section-header">
+              <span class="section-tag">INTERACTIVE PRACTICE CARDS</span>
+              <h2 class="cards-section-title">Explore Key Topics &amp; Methodologies</h2>
+              <p class="cards-section-subhead">Select any card below to expand the complete technical methodology, delivery deliverables, and governance model.</p>
+            </div>
+
+            <div class="vertical-cards-grid">
+              {% for topic in page_data.detailed_topics %}
+                <div class="vcard" id="vcard-{{ topic.id }}" data-card-id="{{ topic.id }}" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Expand {{ topic.title }}">
+                  <div class="vcard-image-wrap">
+                    <img src="{{ topic.image.url if topic.image and topic.image.url else (topic.image if topic.image else '/static/images/content/about-us.jpg') }}" 
+                         alt="{{ topic.image.alt if topic.image and topic.image.alt else topic.title }}" 
+                         loading="lazy" 
+                         class="vcard-image"/>
+                    <div class="vcard-category-tag">{{ topic.badge if topic.badge else 'ENTERPRISE PRACTICE' }}</div>
+                    <div class="vcard-image-overlay">
+                      <span class="vcard-overlay-btn">Click to Expand &rarr;</span>
+                    </div>
+                  </div>
+                  <div class="vcard-body">
+                    <h3 class="vcard-title">{{ topic.title }}</h3>
+                    <p class="vcard-desc">{{ topic.summary if topic.summary else topic.lead }}</p>
+                    
+                    {% if topic.technologies %}
+                      <div class="vcard-tags">
+                        {% for t in topic.technologies[:3] %}
+                          <span class="vcard-tag">{{ t }}</span>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+
+                    <div class="vcard-footer">
+                      <button class="vcard-expand-btn" type="button" aria-label="Expand {{ topic.title }}">
+                        <span>EXPAND</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                      <span class="vcard-hash-link">#{{ topic.id }}</span>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        <!-- Sub-Capabilities Breakdown (Services Summary) -->
+        {% if page_data.sub_capabilities %}
+          <h3 style="font-size: 1.5rem; color: #0B2545; margin-top: 36px; margin-bottom: 20px; font-weight: 800;">
+            Core Capabilities &amp; Methodologies
+          </h3>
+          <div class="sub-capabilities-grid">
+            {% for cap in page_data.sub_capabilities %}
+              <div class="sub-cap-card">
+                <h4>{{ cap.title }}</h4>
+                <p>{{ cap.desc }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Comprehensive Topic Deep-Dives & Answers -->
+        {% if page_data.detailed_topics %}
+          <div style="margin-top: 48px; display: flex; flex-direction: column; gap: 36px;">
+            <div style="border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; margin-bottom: 8px;">
+              <span class="section-tag">COMPREHENSIVE PRACTICE GUIDANCE</span>
+              <h2 style="font-size: 1.75rem; color: #0B2545; font-weight: 800; line-height: 1.25; margin-top: 6px;">
+                Detailed Answers, Methodologies &amp; Architectural Blueprints
+              </h2>
+            </div>
+
+            {% for topic in page_data.detailed_topics %}
+              <article id="{{ topic.id }}" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 12px; box-shadow: var(--shadow-sm); padding: 32px 32px; scroll-margin-top: 100px; transition: border-color 0.2s ease;">
+                
+                <!-- Topic Header -->
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                  <span style="font-size: 0.6875rem; font-weight: 800; color: #1F81C2; letter-spacing: 0.08em; text-transform: uppercase; background: #EBF4FA; padding: 4px 10px; border-radius: 4px;">
+                    {{ topic.badge if topic.badge else 'TOPIC PRACTICE' }}
+                  </span>
+                  <a href="#{{ topic.id }}" style="font-size: 0.75rem; font-weight: 600; color: #64748B; text-decoration: none;">#{{ topic.id }}</a>
+                </div>
+
+                <h3 style="font-size: 1.4375rem; font-weight: 800; color: #0B2545; line-height: 1.3; margin-bottom: 16px;">
+                  {{ topic.title }}
+                </h3>
+
+                <!-- Topic Visual / Image -->
+                {% if topic.image and topic.image.url %}
+                  <div style="margin-bottom: 20px; border-radius: 8px; overflow: hidden; max-height: 320px; border: 1px solid #E2E8F0;">
+                    <img src="{{ topic.image.url }}" alt="{{ topic.image.alt or topic.title }}" style="width: 100%; height: auto; max-height: 320px; object-fit: cover; display: block;" loading="lazy"/>
+                    {% if topic.image.caption %}
+                      <div style="background: #F8FAFC; padding: 6px 14px; font-size: 0.75rem; color: #64748B; font-style: italic; border-top: 1px solid #E2E8F0;">
+                        {{ topic.image.caption }}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                <!-- Lead quote / summary -->
+                {% if topic.lead %}
+                  <p style="font-size: 1.0625rem; font-weight: 500; color: #334155; line-height: 1.7; margin-bottom: 24px; border-left: 4px solid #1F81C2; padding-left: 18px; background: #F8FAFC; padding-top: 12px; padding-bottom: 12px; border-radius: 0 8px 8px 0;">
+                    {{ topic.lead }}
+                  </p>
+                {% endif %}
+
+                <!-- Detailed Explanation / Narrative -->
+                {% if topic.content %}
+                  <div style="font-size: 0.9375rem; line-height: 1.8; color: #475569; margin-bottom: 28px;">
+                    {{ topic.content | replace('\n\n', '<br/><br/>') | safe }}
+                  </div>
+                {% endif %}
+
+                <!-- Operational Methodology Stages -->
+                {% if topic.methodology %}
+                  <h4 style="font-size: 0.9375rem; font-weight: 800; color: #004A7F; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    Sumeru Execution Methodology &amp; Steps
+                  </h4>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 28px;">
+                    {% for step in topic.methodology %}
+                      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px;">
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #1F81C2; margin-bottom: 4px;">{{ step.step }}</div>
+                        <strong style="font-size: 0.9375rem; color: #0B2545; display: block; margin-bottom: 6px;">{{ step.name }}</strong>
+                        <p style="font-size: 0.8125rem; color: #475569; line-height: 1.6; margin: 0;">{{ step.desc }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <!-- Tools & Technologies & Deliverables Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 28px;">
+                  
+                  <!-- Tools & Tech -->
+                  {% if topic.technologies %}
+                    <div style="background: #F4F8FC; border: 1px solid #D6ECFA; border-radius: 8px; padding: 20px;">
+                      <h5 style="font-size: 0.8125rem; font-weight: 800; color: #004A7F; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px;">
+                        Technologies &amp; Frameworks
+                      </h5>
+                      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                        {% for tech in topic.technologies %}
+                          <span style="background: #FFFFFF; border: 1px solid #CBD5E1; color: #1E293B; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 4px;">
+                            {{ tech }}
+                          </span>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+
+                  <!-- Deliverables -->
+                  {% if topic.deliverables %}
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px;">
+                      <h5 style="font-size: 0.8125rem; font-weight: 800; color: #004A7F; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px;">
+                        Tangible Client Deliverables
+                      </h5>
+                      <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                        {% for d in topic.deliverables %}
+                          <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8125rem; color: #1E293B; font-weight: 600;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#69B531" stroke-width="2.5" style="flex-shrink: 0; margin-top: 1px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>{{ d }}</span>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
+
+                </div>
+
+                <!-- Topic Dedicated FAQ / Exact Answer -->
+                {% if topic.qa %}
+                  <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 20px 24px;">
+                    <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 800; color: #92400E; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                      <span>EXACT TOPIC ANSWER &amp; ENTERPRISE GOVERNANCE</span>
+                    </div>
+                    <h5 style="font-size: 0.9375rem; font-weight: 800; color: #78350F; margin-bottom: 6px;">{{ topic.qa.q }}</h5>
+                    <p style="font-size: 0.875rem; color: #451A03; line-height: 1.65; margin: 0;">{{ topic.qa.a }}</p>
+                  </div>
+                {% endif %}
+
+                <!-- Verified Topic Sources & Public Citations -->
+                {% if topic.sources %}
+                  <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #E2E8F0; font-size: 0.75rem; color: #64748B;">
+                    <strong style="color: #475569; display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.6875rem;">Verified Sources &amp; Public References:</strong>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 4px; padding-left: 0; margin: 0;">
+                      {% for s in topic.sources %}
+                        <li style="display: flex; align-items: center; gap: 6px;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1F81C2" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                          <a href="{{ s.url }}" target="_blank" rel="noopener noreferrer" style="color: #1F81C2; text-decoration: underline;">{{ s.title }}</a>
+                          <span style="color: #94A3B8;">({{ s.sourceType }})</span>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Highlights (Solutions) -->
+        {% if page_data.highlights %}
+          <h3 style="font-size: 1.5rem; color: #0B2545; margin-top: 36px; margin-bottom: 20px; font-weight: 800;">
+            Architectural Highlights
+          </h3>
+          <div class="sub-capabilities-grid">
+            {% for hl in page_data.highlights %}
+              <div class="sub-cap-card">
+                <h4>{{ hl.title }}</h4>
+                <p>{{ hl.desc }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Capabilities List (Industries) -->
+        {% if page_data.capabilities %}
+          <h3 style="font-size: 1.5rem; color: #0B2545; margin-top: 36px; margin-bottom: 20px; font-weight: 800;">
+            Key Industry Solutions Delivered
+          </h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">
+            {% for c in page_data.capabilities %}
+              <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.9375rem; color: #1E293B; font-weight: 600;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#69B531" stroke-width="2.5" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>{{ c }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        <!-- Pillars (About / Quality / Careers) -->
+        {% if page_data.pillars %}
+          <h3 style="font-size: 1.5rem; color: #0B2545; margin-top: 36px; margin-bottom: 20px; font-weight: 800;">
+            Strategic Pillars
+          </h3>
+          <div class="sub-capabilities-grid">
+            {% for p in page_data.pillars %}
+              <div class="sub-cap-card">
+                <h4>{{ p.title }}</h4>
+                <p>{{ p.desc }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Service Categories Grid (Services Index) -->
+        {% if page_data.categories %}
+          <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 28px;">
+            {% for cat in page_data.categories %}
+              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <span style="font-size: 0.75rem; font-weight: 800; color: #1F81C2;">PRACTICE {{ cat.num }}</span>
+                  <a href="{{ cat.url }}" style="font-size: 0.8125rem; font-weight: 700; color: #004A7F;">Explore Dedicated Practice &rarr;</a>
+                </div>
+                <h4 style="font-size: 1.25rem; font-weight: 800; color: #0B2545; margin-bottom: 8px;">{{ cat.title }}</h4>
+                <p style="font-size: 0.875rem; color: #475569; margin-bottom: 16px;">{{ cat.desc }}</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  {% for item in cat.offerings %}
+                    <span style="background: #FFFFFF; border: 1px solid #CBD5E1; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; color: #334155;">{{ item }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Solutions List Grid (Solutions Index) -->
+        {% if page_data.solutions_list %}
+          <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 28px;">
+            {% for sol in page_data.solutions_list %}
+              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <div>
+                  <span style="font-size: 0.6875rem; font-weight: 800; color: #1F81C2; letter-spacing: 0.06em;">{{ sol.tag }}</span>
+                  <h4 style="font-size: 1.1875rem; font-weight: 700; color: #0B2545; margin: 4px 0;">{{ sol.title }}</h4>
+                  <p style="font-size: 0.875rem; color: #475569; max-width: 580px;">{{ sol.desc }}</p>
+                </div>
+                <a href="{{ sol.url }}" class="btn btn-secondary btn-sm">Explore &rarr;</a>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Industries List (Industries Index) -->
+        {% if page_data.industries_list %}
+          <div class="industries-grid" style="margin-top: 28px;">
+            {% for ind in page_data.industries_list %}
+              <div class="industry-card">
+                <div class="industry-card-img-wrap">
+                  <img src="{{ ind.image }}" alt="{{ ind.title }}" class="industry-card-img"/>
+                </div>
+                <div class="industry-card-body">
+                  <div>
+                    <h3 class="industry-card-title">{{ ind.title }}</h3>
+                    <p class="industry-card-desc">{{ ind.desc }}</p>
+                  </div>
+                  <a href="{{ ind.url }}" class="industry-card-link">Explore Solutions &rarr;</a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Partners Page Specific -->
+        {% if page_data.partners %}
+          <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 28px;">
+            {% for p in page_data.partners %}
+              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 28px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                <div style="background: #FFFFFF; border: 1px solid #CBD5E1; padding: 12px 20px; border-radius: 6px; width: 180px; display: flex; align-items: center; justify-content: center;">
+                  <img src="{{ p.logo }}" alt="{{ p.name }}" style="max-height: 40px; width: auto;"/>
+                </div>
+                <div style="flex: 1; min-width: 260px;">
+                  <span style="font-size: 0.6875rem; font-weight: 800; color: #69B531; text-transform: uppercase;">{{ p.tag }}</span>
+                  <h4 style="font-size: 1.25rem; font-weight: 700; color: #0B2545; margin: 4px 0;">{{ p.name }}</h4>
+                  <p style="font-size: 0.875rem; color: #475569; line-height: 1.6;">{{ p.desc }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Quality Cards Specific -->
+        {% if page_data.cards %}
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px;">
+            {% for qc in page_data.cards %}
+              <div class="sub-cap-card">
+                <h4>{{ qc.title }}</h4>
+                <p>{{ qc.desc }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Jump Navigation if provided (Resources page) -->
+        {% if page_data.jump_nav %}
+          <div style="background: #F0F6FC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 18px 20px; margin-bottom: 36px;">
+            <div style="font-size: 0.75rem; font-weight: 800; color: #004A7F; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px;">JUMP TO TOPIC</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              {% for j in page_data.jump_nav %}
+                <a href="{{ j.anchor }}" style="background: #FFFFFF; border: 1px solid #94A3B8; padding: 6px 12px; border-radius: 20px; font-size: 0.8125rem; font-weight: 700; color: #0B2545; transition: all 0.15s ease;">{{ j.label }} &darr;</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Detailed Operational Perspectives (Resources) -->
+        {% if page_data.perspectives %}
+          <div id="perspectives" style="display: flex; flex-direction: column; gap: 40px;">
+            {% for p in page_data.perspectives %}
+              <article id="{{ p.id }}" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; box-shadow: var(--shadow-sm); padding: 32px; scroll-margin-top: 100px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                  <span class="insight-category-tag" style="margin: 0;">{{ p.category }}</span>
+                  <span style="background: #E8F7DF; color: #2F6B12; font-size: 0.6875rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.04em;">{{ p.tag }}</span>
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 800; color: #0B2545; line-height: 1.3; margin-bottom: 14px;">{{ p.title }}</h3>
+                <p style="font-size: 1.0625rem; color: #475569; line-height: 1.7; margin-bottom: 24px; border-left: 3px solid #1F81C2; padding-left: 16px;">
+                  {{ p.lead }}
+                </p>
+
+                <!-- Operational Execution Phases -->
+                {% if p.operational_phases %}
+                  <h4 style="font-size: 1rem; font-weight: 800; color: #004A7F; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px;">Operational Implementation Framework</h4>
+                  <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+                    {% for op in p.operational_phases %}
+                      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 16px 20px;">
+                        <strong style="color: #0B2545; display: block; font-size: 0.9375rem; margin-bottom: 6px;">{{ op.phase }}</strong>
+                        <p style="font-size: 0.875rem; color: #334155; line-height: 1.65; margin: 0;">{{ op.operation }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <!-- Operational Metrics & Value -->
+                {% if p.operational_metrics %}
+                  <h4 style="font-size: 0.875rem; font-weight: 800; color: #64748B; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px;">Operational Commitments &amp; Key Governance</h4>
+                  <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                    {% for m in p.operational_metrics %}
+                      <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; color: #1E293B; font-weight: 600;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#69B531" stroke-width="2.5" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>{{ m }}</span>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Downloads & Frameworks Section -->
+        {% if page_data.downloads %}
+          <div id="downloads" style="margin-top: 48px; scroll-margin-top: 100px;">
+            <div class="section-tag">ARCHITECTURAL ASSETS</div>
+            <h3 style="font-size: 1.5rem; color: #0B2545; margin-bottom: 20px; font-weight: 800;">
+              Downloads &amp; Enterprise Blueprints
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              {% for dl in page_data.downloads %}
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                  <div>
+                    <span style="font-size: 0.6875rem; font-weight: 800; background: #E1EFFE; color: #1F81C2; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">{{ dl.format }}</span>
+                    <h4 style="font-size: 1.125rem; font-weight: 700; color: #0B2545; margin: 6px 0 4px 0;">{{ dl.title }}</h4>
+                    <p style="font-size: 0.84375rem; color: #64748B; margin: 0; max-width: 580px;">{{ dl.desc }}</p>
+                  </div>
+                  <a href="/contact" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Request Copy
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- FAQs -->
+        {% if page_data.faqs %}
+          <div id="faqs" style="margin-top: 48px; scroll-margin-top: 100px;">
+            <div class="section-tag">PRACTICE CLARIFICATIONS</div>
+            <h3 style="font-size: 1.5rem; color: #0B2545; margin-bottom: 20px; font-weight: 800;">
+              Frequently Asked Questions &amp; Operational Governance
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              {% for faq in page_data.faqs %}
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px 24px;">
+                  <h5 style="font-size: 1.0625rem; font-weight: 700; color: #0B2545; margin-bottom: 8px;">{{ faq.q }}</h5>
+                  <p style="font-size: 0.875rem; color: #475569; line-height: 1.6; margin: 0;">{{ faq.a }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Global Offices (Contact Page) -->
+        {% if page_data.offices %}
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; margin-bottom: 40px;">
+            {% for off in page_data.offices %}
+              <div class="office-box">
+                <div class="office-region-badge">{{ off.country }}</div>
+                <h4>{{ off.name }}</h4>
+                <div style="font-size: 0.75rem; font-weight: 700; color: #69B531; margin-bottom: 6px;">{{ off.badge }}</div>
+                <p class="address">{{ off.address }}</p>
+                <a href="tel:{{ off.phone }}" class="phone">{{ off.phone }}</a><br/>
+                <a href="mailto:{{ off.email }}" style="font-size: 0.8125rem; color: #1F81C2;">{{ off.email }}</a>
+              </div>
+            {% endfor %}
+          </div>
+
+          <!-- Contact Form for Contact Page -->
+          <div class="contact-form-card" style="margin-top: 36px;">
+            <h3 style="font-size: 1.375rem; font-weight: 800; color: #0B2545; margin-bottom: 20px;">Send Corporate Inquiry</h3>
+            <form id="sumeru-contact-form" novalidate>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="full_name">Full Name *</label>
+                  <input type="text" id="full_name" name="full_name" class="form-input" required placeholder="John Doe"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="company">Company Name *</label>
+                  <input type="text" id="company" name="company" class="form-input" required placeholder="Enterprise Corp"/>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="business_email">Business Email *</label>
+                  <input type="email" id="business_email" name="business_email" class="form-input" required placeholder="jdoe@company.com"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="service_interested_in">Service Interested In *</label>
+                <select id="service_interested_in" name="service_interested_in" class="form-select" required>
+                  <option value="Consulting">Consulting</option>
+                  <option value="Enterprise Solutions">Enterprise Solutions</option>
+                  <option value="SAP">SAP</option>
+                  <option value="Information Management">Information Management</option>
+                  <option value="Professional Services">Professional Services</option>
+                  <option value="Outsourcing">Outsourcing</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message / Scope of Mandate *</label>
+                <textarea id="message" name="message" rows="4" class="form-textarea" required placeholder="Describe your technology requirements, project timeline, or questions..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                SEND INQUIRY
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+              <div id="form-feedback" class="form-feedback" role="alert"></div>
+            </form>
+          </div>
+        {% endif %}
+
+        <!-- Careers Note if applicable -->
+        {% if page_data.contact_note %}
+          <div style="background: #F0F6FC; border-left: 4px solid #1F81C2; padding: 18px 22px; border-radius: 6px; margin-top: 32px; color: #1E293B;">
+            <strong>Application Note:</strong> {{ page_data.contact_note }}
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- Right Sidebar Column -->
+      <aside class="inner-sidebar" aria-label="Quick Actions &amp; Navigation">
+        
+        <!-- Practice CTA Box -->
+        <div class="cta-box-sidebar">
+          <h4>Engage Sumeru</h4>
+          <p>Connect with a practice director to evaluate your architecture or discuss delivery scopes.</p>
+          <a href="/contact" class="btn btn-primary btn-sm" style="width: 100%;">SCHEDULE CONSULTATION &rarr;</a>
+        </div>
+
+        <!-- Practice Quick Links -->
+        <div class="sidebar-card">
+          <h4>Enterprise Services</h4>
+          <ul class="sidebar-links-list">
+            <li><a href="/services/consulting">01 Consulting &rarr;</a></li>
+            <li><a href="/services/enterprise-solutions">02 Enterprise Solutions &rarr;</a></li>
+            <li><a href="/services/information-management">03 Information Management &rarr;</a></li>
+            <li><a href="/services/outsourcing">04 Outsourcing Services &rarr;</a></li>
+            <li><a href="/services/professional-services">05 Professional Services &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- Key Industry Solutions -->
+        <div class="sidebar-card">
+          <h4>Key Verticals</h4>
+          <ul class="sidebar-links-list">
+            <li><a href="/industries/healthcare">Healthcare &rarr;</a></li>
+            <li><a href="/industries/oil-gas">Oil &amp; Gas &rarr;</a></li>
+            <li><a href="/industries/manufacturing">Manufacturing &rarr;</a></li>
+            <li><a href="/industries/education">Education &rarr;</a></li>
+            <li><a href="/industries/textile-apparel">Textile &amp; Apparel &rarr;</a></li>
+            <li><a href="/industries/logistics">Logistics &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- Direct Contact Snapshot -->
+        <div class="sidebar-card">
+          <h4>USA Headquarters</h4>
+          <div style="font-size: 0.8125rem; color: #475569; line-height: 1.6;">
+            <strong>Sumeru Technologies LLC</strong><br/>
+            4580 Weaver Parkway, Suite 206<br/>
+            Warrenville, IL 60555<br/>
+            <strong>Phone:</strong> <a href="tel:+13318889060" style="color: #1F81C2;">+1 331 888 9060</a><br/>
+            <strong>Email:</strong> <a href="mailto:HR@sumerutechnologies.com" style="color: #1F81C2;">HR@sumerutechnologies.com</a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- Reusable Expandable Floating Card Panel (Section 8 Interactive Component) -->
+<div id="vcard-overlay" class="vcard-overlay" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+  <div class="vcard-floating-panel" role="document">
+    
+    <!-- Floating Panel Header -->
+    <div class="floating-panel-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span id="floating-panel-badge" class="floating-panel-badge">ENTERPRISE PRACTICE</span>
+        <span id="floating-panel-hash" style="font-size: 0.75rem; color: #94A3B8; font-family: monospace;">#topic</span>
+      </div>
+      <button type="button" id="floating-panel-close-btn" class="floating-panel-close-btn" aria-label="Close dialog">
+        <span>CLOSE</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Floating Panel Scrollable Body -->
+    <div id="floating-panel-body" class="floating-panel-body">
+      <!-- Populated via JavaScript on Card Click -->
+    </div>
+
+    <!-- Floating Panel Footer -->
+    <div class="floating-panel-footer">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 0.75rem; color: #64748B;">Need architectural advice?</span>
+        <a href="/contact" class="btn btn-primary btn-sm" style="padding: 6px 14px; font-size: 0.75rem;">ENGAGE SUMERU &rarr;</a>
+      </div>
+      <button type="button" id="floating-panel-bottom-close" class="btn btn-secondary btn-sm floating-panel-bottom-close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <span>COLLAPSE CARD ↑</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+{% if page_data.detailed_topics %}
+  <script id="sumeru-topics-data" type="application/json">
+    {{ page_data.detailed_topics | tojson | safe }}
+  </script>
+{% endif %}
+{% endblock %}

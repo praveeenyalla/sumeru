@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>Sumeru Technologies LLC | Enterprise Advisory &amp; Architecture</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#eec14b",
+            "inverse-surface": "#352f2d",
+            "primary": "#775a00",
+            "background": "#fff8f6",
+            "outline": "#807663",
+            "surface-container": "#f7ebe8",
+            "surface-tint": "#775a00",
+            "on-primary-container": "#473500",
+            "secondary-fixed-dim": "#ffb2be",
+            "on-tertiary-container": "#5a2b00",
+            "tertiary": "#8c4f1c",
+            "secondary-fixed": "#ffd9de",
+            "on-surface": "#201a18",
+            "on-secondary-fixed-variant": "#7a2c3e",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#3f0015",
+            "on-surface-variant": "#4e4635",
+            "inverse-on-surface": "#faeeea",
+            "on-error": "#ffffff",
+            "on-background": "#201a18",
+            "surface-container-highest": "#ebe0dc",
+            "surface-container-high": "#f1e6e2",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#fdf1ed",
+            "on-primary-fixed": "#251a00",
+            "secondary-container": "#fd95a8",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary-fixed-variant": "#5a4300",
+            "inverse-primary": "#eec14b",
+            "tertiary-fixed": "#ffdcc5",
+            "primary-fixed": "#ffdf98",
+            "surface-variant": "#ebe0dc",
+            "tertiary-container": "#db8f57",
+            "outline-variant": "#d1c5af",
+            "surface-bright": "#fff8f6",
+            "surface": "#fff8f6",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#301400",
+            "on-secondary-container": "#782a3d",
+            "secondary": "#974355",
+            "surface-dim": "#e3d8d4",
+            "primary-container": "#c59b27",
+            "on-tertiary-fixed-variant": "#6f3804"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            "margin-sm": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "margin-lg": "4rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-lg": "2rem"
+          },
+          fontFamily: {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Newsreader"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Newsreader"],
+            "display-lg": ["Newsreader"],
+            "headline-xl-mobile": ["Newsreader"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Newsreader"]
+          },
+          fontSize: {
+            "label-sm": ["0.6875rem", { lineHeight: "0.875rem", letterSpacing: "0.08em", fontWeight: "700" }],
+            "body-sm": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.005em", fontWeight: "400" }],
+            "body-md": ["1rem", { lineHeight: "1.5rem", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-sm": ["1.25rem", { lineHeight: "1.75rem", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "display-lg-mobile": ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "-0.01em", fontWeight: "500" }],
+            "body-lg": ["1.125rem", { lineHeight: "1.75rem", letterSpacing: "0em", fontWeight: "400" }],
+            "label-md": ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.06em", fontWeight: "600" }],
+            "headline-md": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.01em", fontWeight: "500" }],
+            "display-lg": ["3.5rem", { lineHeight: "4rem", letterSpacing: "-0.02em", fontWeight: "500" }],
+            "headline-xl-mobile": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-lg": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.02em", fontWeight: "600" }],
+            "headline-xl": ["2.5rem", { lineHeight: "3rem", letterSpacing: "-0.015em", fontWeight: "600" }]
+          }
+        }
+      }
+    };
+  </script>
+    <link rel="stylesheet" href="/static/css/custom.css" onerror="this.onerror=null;this.href='../app/static/css/custom.css';"/>
+  <link rel="stylesheet" href="app/static/css/custom.css" onerror="this.onerror=null;"/>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+  <div class="h-20 w-full px-margin-sm lg:px-margin-lg flex items-center justify-between gap-space-md">
+    <a href="#" class="flex items-center gap-space-md shrink-0">
+      <img alt="Brand logo. - Primary color: #0066ff - Font: plusJakartaSans - Mode: dark - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VtDOBCN4Txde1rywC7w0KQQYOzZJCktI9MPANNj1YC_9G9FqP6Tq6cBB-quHdOpTDULDPOXfJRPhkk52mYTmfYDRRSIi6sU2lazt-UKDPH3eKifv0FiLyKpZEiwEOIg7Yjv0T6ELyCM-bN7Npn0RmvUVP-2Y28otnvLwitTlFSiEjEAvQzut6f7TOLy7ZsVnlSjcqcUQmJ8Yugs1LX4Bwdj90h0X9YWGFag3aoSmNn2k13yDUjervjVT-4"/>
+      <div class="flex flex-col">
+        <span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase">Sumeru</span>
+        <span class="font-label-sm text-label-sm text-tertiary tracking-widest uppercase">Technologies</span>
+      </div>
+    </a>
+    <nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="bg-primary-container text-on-primary-container rounded-lg">
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="home" href="#">Home</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="about-sumeru" href="#about-sumeru">About</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="enterprise-solutions" href="#architectural-suites">Solutions</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="industry-practices" href="#industry-practices">Industries</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="sap-architecture" href="#sap-architecture">SAP</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="ai-and-automation" href="#sovereign-pipeline">AI &amp; Automation</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="executive-insights" href="#delivery-framework">4D Delivery</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="careers-global" href="#global-sync">Global Ops</a>
+      <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="contact-headquarters" href="#executive-dispatch">Contact</a>
+
+      <!-- Pages Option Dropdown -->
+      <div class="relative">
+        <button id="pages-dropdown-btn" type="button" class="inline-flex items-center gap-0.5 px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">
+          <span>Pages</span>
+          <span class="material-symbols-outlined text-[16px]">expand_more</span>
+        </button>
+        <div id="pages-dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-80 rounded-2xl glass-dropdown p-space-sm flex flex-col gap-1 z-50 animate-fade-in shadow-2xl">
+          <div class="px-space-xs py-1 border-b border-outline-variant/30 text-[10px] uppercase font-bold tracking-widest text-tertiary">
+            Sovereign Portal Navigation
+          </div>
+          <a href="#" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="home">
+            <span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+            <span>Home &amp; Synapse Matrix</span>
+          </a>
+          <a href="#about-sumeru" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="about-sumeru">
+            <span class="material-symbols-outlined text-secondary text-[18px]">history_edu</span>
+            <span>About Us &amp; Heritage (30 Yrs)</span>
+          </a>
+          <a href="#architectural-suites" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="enterprise-solutions">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">layers</span>
+            <span>Architectural Suites (6 Solutions)</span>
+          </a>
+          <a href="#sovereign-pipeline" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="ai-and-automation">
+            <span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+            <span>7-Stage Sovereign Reasoning</span>
+          </a>
+          <a href="#sap-architecture" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="sap-architecture">
+            <span class="material-symbols-outlined text-secondary text-[18px]">architecture</span>
+            <span>SAP Clean Core Hierarchy</span>
+          </a>
+          <a href="#industry-practices" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="industry-practices">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">domain</span>
+            <span>Regulated Industry Practices</span>
+          </a>
+          <a href="#delivery-framework" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="executive-insights">
+            <span class="material-symbols-outlined text-primary text-[18px]">cycle</span>
+            <span>4D Delivery Paradigm</span>
+          </a>
+          <a href="#global-sync" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="careers-global">
+            <span class="material-symbols-outlined text-secondary text-[18px]">public</span>
+            <span>Follow-the-Sun Global Sync</span>
+          </a>
+          <a href="#executive-dispatch" class="px-space-xs py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-space-xs text-body-sm text-on-surface font-semibold" data-path="contact-headquarters">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">mail</span>
+            <span>Executive Advisory Dispatch</span>
+          </a>
+          <div class="pt-1 mt-1 border-t border-outline-variant/30 flex items-center justify-between text-[11px]">
+            <button type="button" onclick="PortalController.openModal()" class="text-primary font-bold hover:underline cursor-pointer">Client Portal</button>
+            <button type="button" onclick="openMandateCart()" class="text-secondary font-bold hover:underline cursor-pointer">Mandate Cart</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="flex items-center gap-space-sm shrink-0">
+      <!-- Currency & Region Switcher Modal Trigger -->
+      <button type="button" onclick="openRegionModal()" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" title="Switch Region & Currency">
+        <span class="material-symbols-outlined text-[16px] text-tertiary">public</span>
+        <span class="font-label-sm text-label-sm uppercase tracking-wider region-currency-label">US • USD</span>
+      </button>
+
+      <!-- Solution Mandate Cart Trigger -->
+      <button type="button" onclick="openMandateCart()" class="relative p-2 rounded-xl bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" title="View Architectural Mandate Cart">
+        <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+        <span class="cart-count-badge absolute -top-1 -right-1 w-4 h-4 rounded-full bg-secondary text-on-secondary text-[10px] font-bold flex items-center justify-center">2</span>
+      </button>
+
+      <a class="hidden md:inline-flex items-center px-space-sm py-space-xs font-label-md text-label-md text-tertiary hover:text-on-surface transition-colors cursor-pointer" data-path="client-portal-access" href="#" onclick="PortalController.openModal()">Client Portal</a>
+      <a class="inline-flex items-center px-space-md py-space-xs rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg shadow-[0_2px_8px_rgba(151,67,85,0.25)] hover:bg-secondary-container hover:text-on-secondary-container transition-all cursor-pointer" data-path="talk-to-an-expert" href="#executive-dispatch">Talk to an Expert</a>
+      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer" onclick="PortalController.openModal()" title="Executive Profile / Portal Access">
+        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+      </div>
+
+      <!-- Responsive Mobile Drawer Toggle -->
+      <button type="button" onclick="NavigationController.toggleMobileDrawer()" class="xl:hidden p-2 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer" title="Open Navigation Menu">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="w-full pt-20 bg-surface">
+  <div class="flex flex-col w-full">
+    <style>
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.85; transform: scale(1.08); }
+      }
+      @keyframes dashStream {
+        to { stroke-dashoffset: -40; }
+      }
+      @keyframes nodeFloatA {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(0, -6px); }
+      }
+      @keyframes nodeFloatB {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(0, 6px); }
+      }
+      @keyframes shimmerSheen {
+        0% { transform: translateX(-150%) rotate(25deg); }
+        100% { transform: translateX(250%) rotate(25deg); }
+      }
+      .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
+      .animate-dash-stream { stroke-dasharray: 6 6; animation: dashStream 2.4s linear infinite; }
+      .animate-float-a { animation: nodeFloatA 5s ease-in-out infinite; }
+      .animate-float-b { animation: nodeFloatB 6s ease-in-out infinite; }
+      .sheen-layer::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(60deg, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%);
+        transform: translateX(-150%) rotate(25deg);
+        transition: none;
+      }
+      .sheen-layer:hover::after {
+        animation: shimmerSheen 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .animate-pulse-glow, .animate-dash-stream, .animate-float-a, .animate-float-b, .sheen-layer:hover::after {
+          animation: none !important;
+        }
+      }
+    </style>
+
+    <!-- 1. HERO & SYNAPSE CORE TOPOLOGY -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+        <!-- Hero Narrative (Left) -->
+        <div class="lg:col-span-6 flex flex-col gap-space-md">
+          <!-- Live Mission Badge -->
+          <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-low shadow-sm w-fit">
+            <span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping"></span>
+            <span class="w-2 h-2 rounded-full bg-primary -ml-3"></span>
+            <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest">Mission-Critical Sovereign Systems • Synapse v4.8 Active</span>
+          </div>
+          <!-- Headline -->
+          <h1 class="font-headline-xl text-headline-xl lg:font-display-lg lg:text-display-lg text-on-surface tracking-tight leading-[1.08]">
+            Transforming Enterprise Technology with <span class="italic font-headline-xl text-tertiary">AI, SAP &amp;</span> Sovereign Engineering
+          </h1>
+          <!-- Lead Paragraph -->
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Architecting non-negotiable stability, pristine SAP Clean Core foundations, and private intelligence meshes for Fortune 500 and regulated institutional enterprises across North America, Europe, and Asia.
+          </p>
+          <!-- CTA Cluster -->
+          <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+            <a class="relative overflow-hidden inline-flex items-center gap-space-xs px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-md hover:bg-primary hover:text-on-primary transition-all sheen-layer" href="#architectural-suites">
+              <span>Explore Our Solutions</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+            <a class="relative overflow-hidden inline-flex items-center gap-space-xs px-space-lg py-space-md rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg shadow-md hover:bg-secondary-container hover:text-on-secondary-container transition-all sheen-layer" href="#executive-dispatch">
+              <span class="material-symbols-outlined text-[18px]">lock</span>
+              <span>Talk to an Expert</span>
+            </a>
+          </div>
+          <!-- 3 Quantitative Metric Pillars -->
+          <div class="grid grid-cols-3 gap-gutter-sm pt-space-md">
+            <div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm flex flex-col">
+              <span class="font-headline-md text-headline-md text-primary font-semibold">1994</span>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">30+ Yrs Proven</span>
+            </div>
+            <div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm flex flex-col">
+              <span class="font-headline-md text-headline-md text-secondary font-semibold">US • UK • IN</span>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Follow-the-Sun</span>
+            </div>
+            <div class="p-space-sm rounded-xl bg-surface-container-low shadow-sm flex flex-col">
+              <span class="font-headline-md text-headline-md text-tertiary font-semibold">99.99%</span>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Enterprise SLA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Synapse Core Interactive Topology (Right) -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative w-full rounded-2xl bg-surface-container-low shadow-xl p-space-md overflow-hidden">
+            <!-- Topology Header Bar -->
+            <div class="flex items-center justify-between pb-space-sm">
+              <div class="flex items-center gap-space-xs">
+                <span class="material-symbols-outlined text-primary text-[20px]">hub</span>
+                <span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-bold">Synapse Mesh Matrix • Live Cluster</span>
+              </div>
+              <div class="flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-surface text-tertiary font-label-sm text-label-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                <span id="topology-clock">00:00:00 UTC</span>
+              </div>
+            </div>
+            <!-- Interactive SVG Topology Visualizer -->
+            <div class="relative w-full aspect-[4/3] flex items-center justify-center bg-surface-container rounded-xl overflow-hidden animation-interactive-container">
+              <!-- Expand Animation Badge -->
+              <div class="animation-trigger-badge" onclick="openAnimationOverlay('synapse', TopologyController.currentNode)">
+                <span class="material-symbols-outlined text-[14px]">fullscreen</span>
+                <span>Click to Expand Live Animation</span>
+              </div>
+              <svg class="absolute inset-0 w-full h-full cursor-pointer" fill="none" viewbox="0 0 600 450" onclick="openAnimationOverlay('synapse', 'SUMERU_CORE')">
+                <!-- Radial Gradient Defs -->
+                <defs>
+                  <radialgradient cx="50%" cy="50%" id="centerCoreGlow" r="50%">
+                    <stop offset="0%" stop-color="#c59b27" stop-opacity="0.35"></stop>
+                    <stop offset="100%" stop-color="#c59b27" stop-opacity="0"></stop>
+                  </radialgradient>
+                  <lineargradient id="streamGradA" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#c59b27" stop-opacity="0.9"></stop>
+                    <stop offset="100%" stop-color="#974355" stop-opacity="0.3"></stop>
+                  </lineargradient>
+                </defs>
+                <!-- Central Ambient Glow -->
+                <circle class="animate-pulse-glow" cx="300" cy="225" fill="url(#centerCoreGlow)" r="140"></circle>
+                <!-- Core Orbit Concentric Rings -->
+                <circle cx="300" cy="225" r="160" stroke="#d1c5af" stroke-dasharray="3 5" stroke-opacity="0.25"></circle>
+                <circle cx="300" cy="225" r="105" stroke="#d1c5af" stroke-dasharray="2 4" stroke-opacity="0.4"></circle>
+                <!-- Stream Connectors -->
+                <line class="animate-dash-stream" stroke="#c59b27" stroke-width="1.8" x1="300" x2="130" y1="225" y2="100"></line>
+                <line class="animate-dash-stream" stroke="#c59b27" stroke-width="1.8" x1="300" x2="300" y1="225" y2="70"></line>
+                <line class="animate-dash-stream" stroke="#c59b27" stroke-width="1.8" x1="300" x2="470" y1="225" y2="100"></line>
+                <line class="animate-dash-stream" stroke="#c59b27" stroke-width="1.8" x1="300" x2="470" y1="225" y2="340"></line>
+                <line class="animate-dash-stream" stroke="#c59b27" stroke-width="1.8" x1="300" x2="300" y1="225" y2="380"></line>
+                <line class="animate-dash-stream" stroke="#c59b27" stroke-width="1.8" x1="300" x2="130" y1="225" y2="340"></line>
+                <!-- Sumeru Core Hub Central -->
+                <g class="cursor-pointer transition-transform hover:scale-105" onclick="inspectNode('SUMERU_CORE')">
+                  <circle class="shadow-lg" cx="300" cy="225" fill="#775a00" r="44"></circle>
+                  <circle cx="300" cy="225" fill="#fff8f6" r="38" stroke="#c59b27" stroke-width="2.5"></circle>
+                  <text fill="#775a00" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="300" y="222">SUMERU</text>
+                  <text fill="#8c4f1c" font-family="Plus Jakarta Sans" font-size="8" font-weight="600" text-anchor="middle" x="300" y="234">SYNAPSE 4.8</text>
+                </g>
+                <!-- Peripheral Node 1: Sovereign AI Core -->
+                <g class="animate-float-a cursor-pointer hover:opacity-90" onclick="inspectNode('AI_CORE')" onmouseover="inspectNode('AI_CORE')">
+                  <circle cx="130" cy="100" fill="#fff8f6" r="26" stroke="#974355" stroke-width="2"></circle>
+                  <circle cx="130" cy="100" fill="#ffd9de" r="18"></circle>
+                  <text fill="#782a3d" font-family="Plus Jakarta Sans" font-size="7.5" font-weight="700" text-anchor="middle" x="130" y="97">AI / SLM</text>
+                  <text fill="#974355" font-family="Plus Jakarta Sans" font-size="6.5" font-weight="500" text-anchor="middle" x="130" y="106">REASONING</text>
+                </g>
+                <!-- Peripheral Node 2: SAP Clean Core -->
+                <g class="animate-float-b cursor-pointer hover:opacity-90" onclick="inspectNode('SAP_CORE')" onmouseover="inspectNode('SAP_CORE')">
+                  <circle cx="300" cy="70" fill="#fff8f6" r="28" stroke="#775a00" stroke-width="2"></circle>
+                  <circle cx="300" cy="70" fill="#ffdf98" r="20"></circle>
+                  <text fill="#473500" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" text-anchor="middle" x="300" y="67">SAP CORE</text>
+                  <text fill="#775a00" font-family="Plus Jakarta Sans" font-size="6.5" font-weight="600" text-anchor="middle" x="300" y="77">S/4 CLEAN</text>
+                </g>
+                <!-- Peripheral Node 3: Hybrid Cloud Infra -->
+                <g class="animate-float-a cursor-pointer hover:opacity-90" onclick="inspectNode('CLOUD_INFRA')" onmouseover="inspectNode('CLOUD_INFRA')">
+                  <circle cx="470" cy="100" fill="#fff8f6" r="26" stroke="#8c4f1c" stroke-width="2"></circle>
+                  <circle cx="470" cy="100" fill="#ffdcc5" r="18"></circle>
+                  <text fill="#5a2b00" font-family="Plus Jakarta Sans" font-size="7.5" font-weight="700" text-anchor="middle" x="470" y="97">CLOUD</text>
+                  <text fill="#8c4f1c" font-family="Plus Jakarta Sans" font-size="6.5" font-weight="500" text-anchor="middle" x="470" y="106">MULTI-MESH</text>
+                </g>
+                <!-- Peripheral Node 4: Modern Data Fabric -->
+                <g class="animate-float-b cursor-pointer hover:opacity-90" onclick="inspectNode('DATA_FABRIC')" onmouseover="inspectNode('DATA_FABRIC')">
+                  <circle cx="470" cy="340" fill="#fff8f6" r="26" stroke="#c59b27" stroke-width="2"></circle>
+                  <circle cx="470" cy="340" fill="#ffdf98" r="18"></circle>
+                  <text fill="#473500" font-family="Plus Jakarta Sans" font-size="7.5" font-weight="700" text-anchor="middle" x="470" y="337">DATA MESH</text>
+                  <text fill="#775a00" font-family="Plus Jakarta Sans" font-size="6.5" font-weight="500" text-anchor="middle" x="470" y="346">MDM / LAKE</text>
+                </g>
+                <!-- Peripheral Node 5: Enterprise Cyber Defense -->
+                <g class="animate-float-a cursor-pointer hover:opacity-90" onclick="inspectNode('SECURITY')" onmouseover="inspectNode('SECURITY')">
+                  <circle cx="300" cy="380" fill="#fff8f6" r="28" stroke="#974355" stroke-width="2"></circle>
+                  <circle cx="300" cy="380" fill="#ffd9de" r="20"></circle>
+                  <text fill="#782a3d" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" text-anchor="middle" x="300" y="377">SECURITY</text>
+                  <text fill="#974355" font-family="Plus Jakarta Sans" font-size="6.5" font-weight="600" text-anchor="middle" x="300" y="387">ZERO TRUST</text>
+                </g>
+                <!-- Peripheral Node 6: Sovereign App Eng -->
+                <g class="animate-float-b cursor-pointer hover:opacity-90" onclick="inspectNode('ENGINEERING')" onmouseover="inspectNode('ENGINEERING')">
+                  <circle cx="130" cy="340" fill="#fff8f6" r="26" stroke="#775a00" stroke-width="2"></circle>
+                  <circle cx="130" cy="340" fill="#ffdf98" r="18"></circle>
+                  <text fill="#473500" font-family="Plus Jakarta Sans" font-size="7.5" font-weight="700" text-anchor="middle" x="130" y="337">CORE ENG</text>
+                  <text fill="#775a00" font-family="Plus Jakarta Sans" font-size="6.5" font-weight="500" text-anchor="middle" x="130" y="346">MICROSERVICES</text>
+                </g>
+              </svg>
+            </div>
+            <!-- Dynamic Node Telemetry Strip -->
+            <div class="mt-space-sm p-space-sm rounded-xl bg-surface flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xs shadow-sm transition-all" id="telemetry-readout">
+              <div class="flex items-center gap-space-xs">
+                <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                <span class="font-label-md text-label-md text-on-surface font-semibold uppercase" id="node-name">CENTRAL SYNAPSE ORCHESTRATOR</span>
+              </div>
+              <div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+                <span id="node-latency">LATENCY: 0.4ms</span>
+                <span class="text-tertiary font-bold" id="node-status">STATE: MASTER CLUSTER OPTIMAL</span>
+                <span id="node-protocol">PROTOCOL: TLS 1.3 / SOV-IPC</span>
+                <button type="button" onclick="openAnimationOverlay('synapse', TopologyController.currentNode)" class="text-primary font-bold hover:underline flex items-center gap-0.5 cursor-pointer ml-1">
+                  <span class="material-symbols-outlined text-[14px]">open_in_full</span>
+                  <span>Enlarge Animation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. VERIFIED TRUST STRIP -->
+    <section class="w-full bg-surface-container py-space-md shadow-sm">
+      <div class="px-margin-sm lg:px-margin-lg">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-space-md items-center">
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[22px]">workspace_premium</span>
+            <div class="flex flex-col">
+              <span class="font-label-md text-label-md text-on-surface font-bold">Since 1994</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">30+ Years Proven Engineering</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-secondary text-[22px]">travel_explore</span>
+            <div class="flex flex-col">
+              <span class="font-label-md text-label-md text-on-surface font-bold">Global Presence</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">USA • UK • India Centers</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-tertiary text-[22px]">domain</span>
+            <div class="flex flex-col">
+              <span class="font-label-md text-label-md text-on-surface font-bold">Fortune 500 Proven</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Regulated Industry Scale</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[22px]">verified</span>
+            <div class="flex flex-col">
+              <span class="font-label-md text-label-md text-on-surface font-bold">Core ALM Certified</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Methodical Traceability</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-secondary text-[22px]">security</span>
+            <div class="flex flex-col">
+              <span class="font-label-md text-label-md text-on-surface font-bold">Hardened Defense</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Zero Trust Architecture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 30 YEARS OF ARCHITECTURAL CRAFT -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl" id="about-sumeru">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg">
+        <!-- Narrative Heritage Left -->
+        <div class="lg:col-span-5 flex flex-col gap-space-md">
+          <div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container text-tertiary font-label-sm text-label-sm uppercase tracking-widest w-fit">
+            <span class="material-symbols-outlined text-[14px]">history_edu</span>
+            Architectural Heritage
+          </div>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface">
+            Three Decades of Precision Systems &amp; Resilient Foundations
+          </h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Since our inception in 1994, Sumeru Technologies LLC has evolved alongside computing history—from early client-server mainframe integration to today's sovereign private LLMs, high-speed SAP S/4HANA migrations, and real-time event streaming architectures.
+          </p>
+          <!-- Chronology Milestone Path -->
+          <div class="flex flex-col gap-space-sm pt-space-xs">
+            <div class="flex items-start gap-space-sm">
+              <div class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-primary font-bold">1994</div>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-semibold">Foundational Enterprise Integration</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Pioneering bespoke systems engineering &amp; ALM frameworks.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-space-sm">
+              <div class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-tertiary font-bold">2002</div>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-semibold">SAP &amp; Global ERP Mastery</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Scaling cross-continental delivery for manufacturing and energy titans.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-space-sm">
+              <div class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">2014</div>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-semibold">Cloud Migration &amp; Data Fabric</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Multi-cloud architectures and hybrid sovereign data infrastructures.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-space-sm">
+              <div class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-primary font-bold">2025</div>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-semibold">Synapse AI &amp; Clean Core SAP</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Private SLM agent orchestration paired with BTP extensibility.</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex items-center gap-space-md mt-space-xs">
+            <div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[24px]">verified_user</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-label-lg text-label-lg text-on-surface font-bold">300+ Sovereign Deployments</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Zero enterprise breach incident history across multi-tenant ecosystems.</span>
+            </div>
+          </div>
+        </div>
+        <!-- 8 Pillars 2x4 Grid Right -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-gutter-sm">
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('systems-integration')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary mb-space-sm group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+              <span class="material-symbols-outlined text-[20px]">layers</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Systems Integration</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Harmonizing disjointed architectures across legacy mainframes, microservices, and partner APIs.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('alm-lifecycle')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-secondary mb-space-sm group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">
+              <span class="material-symbols-outlined text-[20px]">cycle</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">ALM Lifecycle</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Methodical governance from blueprint design, rigorous staging, to continuous telemetry validation.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('custom-dev')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-tertiary mb-space-sm group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+              <span class="material-symbols-outlined text-[20px]">terminal</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Custom Development</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">High-throughput microservices, sub-millisecond trading relays, and mission-critical engines.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('package-deployment')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary mb-space-sm group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+              <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Package Deployment</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Turnkey rollouts of Tier-1 ERP and governance tools with zero operational downtime.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('crm-erp-sync')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-secondary mb-space-sm group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">
+              <span class="material-symbols-outlined text-[20px]">sync_alt</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">CRM &amp; ERP Integration</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Bi-directional event synchronization maintaining ACID compliance across hybrid clouds.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('qa-resiliency')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-tertiary mb-space-sm group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+              <span class="material-symbols-outlined text-[20px]">fact_check</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">QA &amp; Resiliency Testing</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Automated regression suites, chaos engineering, and continuous penetration simulations.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('business-integration')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary mb-space-sm group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+              <span class="material-symbols-outlined text-[20px]">lan</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Business Integration</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">B2B EDI pipelines, sovereign supply chain nodes, and partner extranet governance.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm transition-all hover:-translate-y-1 group cursor-pointer" onclick="openPillarModal('app-management')">
+            <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-secondary mb-space-sm group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors">
+              <span class="material-symbols-outlined text-[20px]">shield_with_heart</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Application Management</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">24/7/365 follow-the-sun L3 engineering, patch compliance, and automated telemetry remediation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ENTERPRISE ARCHITECTURAL SUITES (6 SOLUTIONS) -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl bg-surface-container" id="architectural-suites">
+      <div class="flex flex-col gap-space-lg">
+        <!-- Section Heading & Filter Tabs -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+          <div class="flex flex-col gap-space-xs max-w-2xl">
+            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Comprehensive Engineering Practices</span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">Mission-Critical Architectural Suites</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">Constructed to decouple monolithic bottlenecks and insulate regulated institutions against volatility.</p>
+          </div>
+          <!-- Filter Tabs -->
+          <div class="flex items-center gap-space-xs p-1 rounded-xl bg-surface shadow-sm">
+            <button class="solution-filter-btn px-space-sm py-space-xs rounded-lg font-label-md text-label-md transition-all bg-primary-container text-on-primary-container shadow-sm" data-filter="all" onclick="filterSolutions('all')">ALL SOLUTIONS</button>
+            <button class="solution-filter-btn px-space-sm py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" data-filter="ai-data" onclick="filterSolutions('ai-data')">AI &amp; DATA</button>
+            <button class="solution-filter-btn px-space-sm py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" data-filter="sap" onclick="filterSolutions('sap')">SAP CORE</button>
+            <button class="solution-filter-btn px-space-sm py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" data-filter="infra-sec" onclick="filterSolutions('infra-sec')">INFRA &amp; SEC</button>
+          </div>
+        </div>
+        <!-- 6 Solution Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg" id="solutions-grid">
+          <!-- Card 1: Private AI -->
+          <div class="solution-card flex flex-col justify-between p-space-lg rounded-2xl bg-surface shadow-md hover:-translate-y-1.5 transition-all" data-category="ai-data">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-space-md">
+                <span class="material-symbols-outlined text-[28px]">psychology</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-bold">SOVEREIGN AI SUITE</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">Private Enterprise AI &amp; Automation</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">On-premises and private-VPC Small Language Models (SLMs), fine-tuned domain reasoning, and governed multi-agent execution engines.</p>
+              <div class="flex flex-col gap-space-xs mb-space-lg">
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Air-Gapped RAG Pipelines</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Deterministic Enterprise Workflows</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Model Risk &amp; Bias Auditing</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-space-md border-t-0 bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+              <button type="button" onclick="SolutionsController.openSpecificationModal('sovereign-ai')" class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1 hover:underline cursor-pointer">
+                <span>READ SPECIFICATION</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+              <button type="button" onclick="MandateCartController.add('sovereign-ai', 'Private Enterprise AI & Automation', 'SOVEREIGN AI SUITE'); event.stopPropagation();" class="px-space-xs py-1 rounded-lg bg-surface text-secondary hover:bg-secondary hover:text-on-secondary text-[11px] font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">add</span>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Card 2: SAP Modernization -->
+          <div class="solution-card flex flex-col justify-between p-space-lg rounded-2xl bg-surface shadow-md hover:-translate-y-1.5 transition-all" data-category="sap">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-space-md">
+                <span class="material-symbols-outlined text-[28px]">account_tree</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">SAP EXCELLENCE</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">SAP S/4HANA Modernization</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Clean Core paradigm transitions, RISE with SAP roadmaps, and SAP BTP cloud-native side-by-side extension engineering.</p>
+              <div class="flex flex-col gap-space-xs mb-space-lg">
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  <span>Zero-Modification Core Migration</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  <span>SAP Cloud ALM Integration</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  <span>SAP Joule Generative Copilots</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-space-md border-t-0 bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+              <button type="button" onclick="SolutionsController.openSpecificationModal('sap-modernization')" class="font-label-sm text-label-sm text-secondary font-bold flex items-center gap-1 hover:underline cursor-pointer">
+                <span>READ SPECIFICATION</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+              <button type="button" onclick="MandateCartController.add('sap-modernization', 'SAP S/4HANA Modernization', 'SAP EXCELLENCE'); event.stopPropagation();" class="px-space-xs py-1 rounded-lg bg-surface text-secondary hover:bg-secondary hover:text-on-secondary text-[11px] font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">add</span>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Card 3: Hybrid Multi-Cloud -->
+          <div class="solution-card flex flex-col justify-between p-space-lg rounded-2xl bg-surface shadow-md hover:-translate-y-1.5 transition-all" data-category="infra-sec">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary mb-space-md">
+                <span class="material-symbols-outlined text-[28px]">cloud_sync</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-bold">CLOUD ARCHITECTURE</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">Hybrid Multi-Cloud Engineering</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">AWS, Azure, and Google Cloud cross-platform meshes engineered for regulatory data sovereignty and resilient failover topologies.</p>
+              <div class="flex flex-col gap-space-xs mb-space-lg">
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Terraform / OpenTofu GitOps</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Multi-Region Active-Active Nodes</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>FinOps Cloud Margin Governance</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-space-md border-t-0 bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+              <button type="button" onclick="SolutionsController.openSpecificationModal('hybrid-cloud')" class="font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-1 hover:underline cursor-pointer">
+                <span>READ SPECIFICATION</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+              <button type="button" onclick="MandateCartController.add('hybrid-cloud', 'Hybrid Multi-Cloud Engineering', 'CLOUD ARCHITECTURE'); event.stopPropagation();" class="px-space-xs py-1 rounded-lg bg-surface text-secondary hover:bg-secondary hover:text-on-secondary text-[11px] font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">add</span>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Card 4: Modern Data Fabric -->
+          <div class="solution-card flex flex-col justify-between p-space-lg rounded-2xl bg-surface shadow-md hover:-translate-y-1.5 transition-all" data-category="ai-data">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-space-md">
+                <span class="material-symbols-outlined text-[28px]">database</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-bold">DATA GOVERNANCE</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">Modern Data Fabric &amp; MDM</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Unified Master Data Management (Kalido &amp; Informatica), low-latency Apache Iceberg lakes, and real-time Kafka streaming.</p>
+              <div class="flex flex-col gap-space-xs mb-space-lg">
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Master Data Harmonization</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Iceberg / Parquet Lakehouses</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Automated Lineage &amp; Compliance</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-space-md border-t-0 bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+              <button type="button" onclick="SolutionsController.openSpecificationModal('data-fabric')" class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1 hover:underline cursor-pointer">
+                <span>READ SPECIFICATION</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+              <button type="button" onclick="MandateCartController.add('data-fabric', 'Modern Data Fabric & MDM', 'DATA GOVERNANCE'); event.stopPropagation();" class="px-space-xs py-1 rounded-lg bg-surface text-secondary hover:bg-secondary hover:text-on-secondary text-[11px] font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">add</span>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Card 5: Enterprise Security -->
+          <div class="solution-card flex flex-col justify-between p-space-lg rounded-2xl bg-surface shadow-md hover:-translate-y-1.5 transition-all" data-category="infra-sec">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-space-md">
+                <span class="material-symbols-outlined text-[28px]">lock_clock</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">DEFENSIVE RESILIENCE</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">Enterprise Security &amp; Defense</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Zero-Trust network segmentation, sovereign key management (KMS), and proactive SOC automation for regulated financial and defense nodes.</p>
+              <div class="flex flex-col gap-space-xs mb-space-lg">
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  <span>Zero-Trust IAM &amp; Role Segmentation</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  <span>Hardware Security Module (HSM) Keys</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                  <span>Continuous Compliance Telemetry</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-space-md border-t-0 bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+              <button type="button" onclick="SolutionsController.openSpecificationModal('enterprise-security')" class="font-label-sm text-label-sm text-secondary font-bold flex items-center gap-1 hover:underline cursor-pointer">
+                <span>READ SPECIFICATION</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+              <button type="button" onclick="MandateCartController.add('enterprise-security', 'Enterprise Security & Defense', 'DEFENSIVE RESILIENCE'); event.stopPropagation();" class="px-space-xs py-1 rounded-lg bg-surface text-secondary hover:bg-secondary hover:text-on-secondary text-[11px] font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">add</span>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Card 6: Mission-Critical App Eng -->
+          <div class="solution-card flex flex-col justify-between p-space-lg rounded-2xl bg-surface shadow-md hover:-translate-y-1.5 transition-all" data-category="infra-sec">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary mb-space-md">
+                <span class="material-symbols-outlined text-[28px]">code_blocks</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-bold">ENGINEERING CORE</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">Mission-Critical App Engineering</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Polyglot microservices, distributed transaction managers, and reactive web applications engineered for millions of concurrent interactions.</p>
+              <div class="flex flex-col gap-space-xs mb-space-lg">
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>High-Throughput Go / Rust Services</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>gRPC / Protobuf Internal Fabrics</span>
+                </div>
+                <div class="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Formal Invariant Verification</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-space-md border-t-0 bg-surface-container-low -mx-space-lg -mb-space-lg p-space-md rounded-b-2xl flex items-center justify-between">
+              <button type="button" onclick="SolutionsController.openSpecificationModal('app-engineering')" class="font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-1 hover:underline cursor-pointer">
+                <span>READ SPECIFICATION</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+              <button type="button" onclick="MandateCartController.add('app-engineering', 'Mission-Critical App Engineering', 'ENGINEERING CORE'); event.stopPropagation();" class="px-space-xs py-1 rounded-lg bg-surface text-secondary hover:bg-secondary hover:text-on-secondary text-[11px] font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">add</span>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SOVEREIGN INTELLIGENCE FRAMEWORK (7-STAGE PIPELINE) -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl" id="sovereign-pipeline">
+      <div class="flex flex-col gap-space-lg">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+          <div class="flex flex-col gap-space-xs max-w-3xl">
+            <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest font-bold">Governed Autonomous Intelligence</span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">The 7-Stage Sovereign Reasoning Pipeline</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Unlike commoditized public chatbots, Sumeru builds air-gapped sovereign intelligence pipelines that anchor LLM reasoning directly into proprietary enterprise knowledge graphs without vendor lock-in.
+            </p>
+          </div>
+          <!-- Live Interactive Simulation Trigger Bar -->
+          <div class="flex items-center gap-space-xs shrink-0 flex-wrap">
+            <button type="button" onclick="openAnimationOverlay('pipeline')" class="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-all border border-outline-variant/40 cursor-pointer">
+              <span class="material-symbols-outlined text-[18px]">play_shapes</span>
+              <span>Expand Traversal Animation</span>
+            </button>
+            <button id="btn-run-simulation" onclick="PipelineController.runSimulation()" class="relative overflow-hidden inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container hover:text-on-primary-container transition-all sheen-layer cursor-pointer">
+              <span class="material-symbols-outlined text-[18px]">play_circle</span>
+              <span>Simulate Sovereign Trace</span>
+            </button>
+          </div>
+        </div>
+        <!-- 7-Stage Pipeline Interactive Traversal Bar -->
+        <div class="p-space-md rounded-2xl bg-surface-container-low shadow-sm">
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-space-xs" id="pipeline-steps-container">
+            <button class="pipeline-step-btn p-space-sm rounded-xl bg-surface text-left transition-all shadow-sm ring-2 ring-primary" data-step="1" onclick="selectPipelineStep(1)">
+              <span class="font-label-sm text-label-sm text-primary font-bold">01 INGEST</span>
+              <h4 class="font-label-md text-label-md text-on-surface mt-1">Multi-Modal Ingest</h4>
+              <span class="text-[11px] text-on-surface-variant line-clamp-1">Structured &amp; Raw</span>
+            </button>
+            <button class="pipeline-step-btn p-space-sm rounded-xl bg-surface-container text-left transition-all hover:bg-surface" data-step="2" onclick="selectPipelineStep(2)">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">02 GRAPH</span>
+              <h4 class="font-label-md text-label-md text-on-surface mt-1">Knowledge Mesh</h4>
+              <span class="text-[11px] text-on-surface-variant line-clamp-1">Semantic Triples</span>
+            </button>
+            <button class="pipeline-step-btn p-space-sm rounded-xl bg-surface-container text-left transition-all hover:bg-surface" data-step="3" onclick="selectPipelineStep(3)">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">03 VECTOR</span>
+              <h4 class="font-label-md text-label-md text-on-surface mt-1">Hybrid RAG Layer</h4>
+              <span class="text-[11px] text-on-surface-variant line-clamp-1">Dense / Sparse Search</span>
+            </button>
+            <button class="pipeline-step-btn p-space-sm rounded-xl bg-surface-container text-left transition-all hover:bg-surface" data-step="4" onclick="selectPipelineStep(4)">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">04 SLM</span>
+              <h4 class="font-label-md text-label-md text-on-surface mt-1">Private SLM Core</h4>
+              <span class="text-[11px] text-on-surface-variant line-clamp-1">Local Air-Gapped weights</span>
+            </button>
+            <button class="pipeline-step-btn p-space-sm rounded-xl bg-surface-container text-left transition-all hover:bg-surface" data-step="5" onclick="selectPipelineStep(5)">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">05 AGENTS</span>
+              <h4 class="font-label-md text-label-md text-on-surface mt-1">Agent Swarm</h4>
+              <span class="text-[11px] text-on-surface-variant line-clamp-1">Multi-Role Evaluators</span>
+            </button>
+            <button class="pipeline-step-btn p-space-sm rounded-xl bg-surface-container text-left transition-all hover:bg-surface" data-step="6" onclick="selectPipelineStep(6)">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">06 FLOWS</span>
+              <h4 class="font-label-md text-label-md text-on-surface mt-1">Task Orchestration</h4>
+              <span class="text-[11px] text-on-surface-variant line-clamp-1">Deterministic BTP</span>
+            </button>
+            <button class="pipeline-step-btn p-space-sm rounded-xl bg-surface-container text-left transition-all hover:bg-surface" data-step="7" onclick="selectPipelineStep(7)">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">07 INTERFACE</span>
+              <h4 class="font-label-md text-label-md text-on-surface mt-1">Enterprise UI</h4>
+              <span class="text-[11px] text-on-surface-variant line-clamp-1">SAP Fiori &amp; APIs</span>
+            </button>
+          </div>
+          <!-- Traversal Active Inspection Panel -->
+          <div class="mt-space-md p-space-lg rounded-xl bg-surface shadow-sm grid grid-cols-1 md:grid-cols-12 gap-space-md items-center" id="step-detail-card">
+            <div class="md:col-span-8 flex flex-col gap-space-xs">
+              <span class="font-label-sm text-label-sm text-primary uppercase font-bold" id="step-eyebrow">STAGE 01 OF 07 • 01 INGEST</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface" id="step-title">Multi-Modal Ingest &amp; Sanitization Engine</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant" id="step-desc">Continuous automated parsing of structured databases (SAP HANA, SQL), unstructured documents (PDF specs, contracts), and streaming telemetry via TLS 1.3 encrypted conduits with automated PII masking.</p>
+            </div>
+            <div class="md:col-span-4 p-space-md rounded-xl bg-surface-container flex flex-col gap-space-xs font-body-sm text-body-sm">
+              <div class="flex justify-between text-on-surface">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">INGEST SPEED:</span>
+                <span class="font-semibold text-primary" id="step-stat-1">124k docs / sec</span>
+              </div>
+              <div class="flex justify-between text-on-surface">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">PII ACCURACY:</span>
+                <span class="font-semibold text-secondary" id="step-stat-2">99.98% Sanitized</span>
+              </div>
+              <div class="flex justify-between text-on-surface">
+                <span class="font-label-sm text-label-sm text-on-surface-variant">ISOLATION:</span>
+                <span class="font-semibold text-tertiary" id="step-stat-3">Dedicated Tenant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 4 Sovereign Architecture Pillars -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-sm">
+          <div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[28px]">lock</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">Air-Gapped Models</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Zero external cloud data leaks. Model parameters execute inside your isolated perimeter.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-secondary text-[28px]">admin_panel_settings</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">Enterprise Knowledge RBAC</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Granular user permission synchronization down to row-level entity access inside embeddings.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-tertiary text-[28px]">psychology_alt</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">Agentic Execution</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Multi-step autonomous planners with built-in sanity benchmarks and supervisor verifications.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[28px]">gavel</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">Audit &amp; Guardrails</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Full mathematical traceability on every generated conclusion for regulatory compliance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SAP CENTER OF EXCELLENCE (CLEAN CORE) -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl bg-surface-container" id="sap-architecture">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+        <!-- 5-Tier Clean Core Stack Visualizer Left -->
+        <div class="lg:col-span-6 flex flex-col gap-space-md">
+          <div class="flex items-center justify-between">
+            <div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface text-secondary font-label-sm text-label-sm uppercase tracking-widest w-fit">
+              <span class="material-symbols-outlined text-[14px]">architecture</span>
+              Architectural Blueprint
+            </div>
+            <div class="flex items-center gap-space-xs">
+              <button type="button" onclick="openAnimationOverlay('clean_core')" class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface text-secondary font-label-sm text-label-sm font-bold border border-secondary/20 hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-sm cursor-pointer">
+                <span class="material-symbols-outlined text-[16px]">layers</span>
+                <span>3D Tier Animation</span>
+              </button>
+              <button type="button" onclick="CleanCoreController.openAuditModal()" class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface text-primary font-label-sm text-label-sm font-bold border border-primary/20 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm cursor-pointer">
+                <span class="material-symbols-outlined text-[16px]">calculate</span>
+                <span>Launch Clean Core Audit</span>
+              </button>
+            </div>
+          </div>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface">SAP Clean Core Hierarchy</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Extending SAP business logic without mutating kernel code. Guarantee seamless bi-annual upgrades, reduced technical debt, and instant compatibility with Joule AI copilots.
+          </p>
+          <!-- 5-Tier Layer Stack -->
+          <div class="flex flex-col gap-space-xs pt-space-xs">
+            <!-- Tier 5 -->
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex items-center justify-between hover:bg-surface-bright transition-all">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-7 h-7 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm font-bold flex items-center justify-center">T5</span>
+                <div>
+                  <h4 class="font-label-lg text-label-lg text-on-surface">SAP Fiori &amp; Modern Experiences</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Adaptive UI5, mobile interfaces, and unified portal experiences.</p>
+                </div>
+              </div>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase font-semibold">User Experience</span>
+            </div>
+            <!-- Tier 4 -->
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex items-center justify-between hover:bg-surface-bright transition-all">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-7 h-7 rounded-lg bg-surface-container text-secondary font-label-sm text-label-sm font-bold flex items-center justify-center">T4</span>
+                <div>
+                  <h4 class="font-label-lg text-label-lg text-on-surface">BTP Side-by-Side Extensions</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Node.js, Java, and CAP services running decoupled in cloud runtimes.</p>
+                </div>
+              </div>
+              <span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Decoupled Logic</span>
+            </div>
+            <!-- Tier 3 -->
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex items-center justify-between hover:bg-surface-bright transition-all">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-7 h-7 rounded-lg bg-surface-container text-tertiary font-label-sm text-label-sm font-bold flex items-center justify-center">T3</span>
+                <div>
+                  <h4 class="font-label-lg text-label-lg text-on-surface">SAP Cloud ALM &amp; Observability</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Real-time health, automated regression suites, and release controls.</p>
+                </div>
+              </div>
+              <span class="font-label-sm text-label-sm text-tertiary uppercase font-semibold">Governance</span>
+            </div>
+            <!-- Tier 2 -->
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex items-center justify-between hover:bg-surface-bright transition-all">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-7 h-7 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm font-bold flex items-center justify-center">T2</span>
+                <div>
+                  <h4 class="font-label-lg text-label-lg text-on-surface">Standard Public APIs &amp; Events</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">OData v4 and SAP Event Mesh eliminating direct database joins.</p>
+                </div>
+              </div>
+              <span class="font-label-sm text-label-sm text-primary uppercase font-semibold">Strict Gateway</span>
+            </div>
+            <!-- Tier 1 -->
+            <div class="p-space-md rounded-xl bg-primary-container text-on-primary-container shadow-md flex items-center justify-between">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-7 h-7 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center justify-center">T1</span>
+                <div>
+                  <h4 class="font-label-lg text-label-lg font-bold">Pristine SAP Kernel (S/4HANA)</h4>
+                  <p class="font-body-sm text-body-sm opacity-90">100% untouched core logic with perpetual upgrade readiness.</p>
+                </div>
+              </div>
+              <span class="font-label-sm text-label-sm font-bold uppercase tracking-wider">IMMUTABLE CORE</span>
+            </div>
+          </div>
+        </div>
+        <!-- 6 Practice Modules Right -->
+        <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[24px]">forward</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">S/4HANA Migration</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Brownfield, Greenfield, and Selective Data Transition methodologies tailored for high-transaction ledgers.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-secondary text-[24px]">flight_takeoff</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">RISE with SAP</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Cloud ERP governance and contractual optimization with holistic hyperscaler management.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-tertiary text-[24px]">troubleshoot</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">SAP Cloud ALM</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Lifecycle operational dashboards, test automation, and release synchronization with Jira/GitLab.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[24px]">neurology</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">SAP AI &amp; Joule</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Domain-specific copilot orchestrations within finance, procurement, and supply chain processes.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-secondary text-[24px]">support_agent</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">Functional Advisory</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">FICO, MM, SD, PP, and EWM deep process optimization by senior architects averaging 15+ years tenure.</p>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col gap-space-xs">
+            <span class="material-symbols-outlined text-tertiary text-[24px]">memory</span>
+            <h4 class="font-headline-sm text-headline-sm text-on-surface">Technical &amp; BASIS</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">High-availability cluster tuning, disaster recovery validation, and ABAP Cloud development standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. REGULATED INDUSTRY PRACTICES -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl" id="industry-practices">
+      <div class="flex flex-col gap-space-lg">
+        <div class="flex flex-col gap-space-xs max-w-2xl">
+          <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Domain Specialization</span>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface">Regulated Industry Practices</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">Deep regulatory literacy in environments where downtime, compliance penalties, and systemic failure carry astronomical stakes.</p>
+        </div>
+        <!-- 6 Industry Photo Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
+          <!-- Healthcare & Life Sciences -->
+          <div class="group relative rounded-2xl overflow-hidden bg-surface-container-low shadow-md hover:-translate-y-1.5 transition-all image-card-clickable" onclick="openIndustryModal('healthcare')">
+            <div class="h-48 w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic clean sterile pharmaceutical research laboratory with warm champagne lighting accents, advanced biomedical automated machinery, and scientists reviewing real-time genomic telemetry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSBYzb5_DUhokqpeWwKN2X5_Zd9kTX1FnS3253V4GIfhUuFL2CXCplckfGZRlOtLItqQ-0oLhGZdC3qN5R4U5tU2XsnZC1m6GG78IIE416-rRFAmssEVCZNPSLJMXDdLaBXDozcC54L0jdv8tLSl-yGuot7fV7rhzA1DhYx-BCxtoLNJsFLbesSx5RnbMDD8vZNYJiWBR2VdR7f-kdbYLVwtt-JIRqcNfjNr3b93UhfDefqPTKd7xYxA"/>
+              <div class="image-card-badge">
+                <span class="material-symbols-outlined text-[14px]">visibility</span>
+                <span>Sector Case Study ↗</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            </div>
+            <div class="p-space-md flex flex-col gap-space-xs">
+              <span class="font-label-sm text-label-sm text-secondary font-bold uppercase">FDA / HIPAA COMPLIANT</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Healthcare &amp; Life Sciences</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">GAMP 5 validation, serialized track-and-trace supply chains, and sovereign clinical trial analytics with zero phi leakage.</p>
+            </div>
+          </div>
+          <!-- Oil & Gas / Energy -->
+          <div class="group relative rounded-2xl overflow-hidden bg-surface-container-low shadow-md hover:-translate-y-1.5 transition-all image-card-clickable" onclick="openIndustryModal('energy')">
+            <div class="h-48 w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="High tech offshore oil and gas facility at dusk illuminated with warm amber lanterns, dramatic industrial architecture, automated pipeline valves and glowing sensor diagnostics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMG361Zgf5MxqrOEMUOahSG6f-0K7B-KfPoIigrSseCT7Pfl64DnOTFmav9YiUL2WpbzRjU0zo6A6HdgA0W8p6-cCyhq_hMj-MheXBZOO_bBwmC48r1vM89PUgP_Nq_aK-597dGfd8NwhRcWroRnW-HcNPtkWXR2sPfU6NYRP54MJ5n8hVioah7-B5BMxuxqi0ZCBqJHQT-TsV6KGQIjOUkkU6l6nxDIfXsHiiw7d14W7Rqcq2Dv8iFw"/>
+              <div class="image-card-badge">
+                <span class="material-symbols-outlined text-[14px]">visibility</span>
+                <span>Sector Case Study ↗</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            </div>
+            <div class="p-space-md flex flex-col gap-space-xs">
+              <span class="font-label-sm text-label-sm text-tertiary font-bold uppercase">MISSION-CRITICAL SCADA</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Energy, Oil &amp; Gas</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Predictive asset downtime modeling, refinery telemetry ingest, and SAP Plant Maintenance (PM) field mobility rollouts.</p>
+            </div>
+          </div>
+          <!-- Smart Precision Manufacturing -->
+          <div class="group relative rounded-2xl overflow-hidden bg-surface-container-low shadow-md hover:-translate-y-1.5 transition-all image-card-clickable" onclick="openIndustryModal('manufacturing')">
+            <div class="h-48 w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Modern precision aerospace manufacturing plant with automated robotic assembly arms, golden illumination, polished epoxy floors, and high tech production telemetry displays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw2-Yf68jRwMOmnNyMrof3vXFBLHOLbDfPHCQUCU0AxqvsAiM8j3n3uJW-_vu9DQGuFej94CbEY_TRTxD687Djw9IoA05Fv2MiRsrDLi0yBmGXdQEyCsrE4Wos57rX2Fvoji-OnTDroDeKC4N1C_AiczVJhn4bOOp7Zfwxsac8tvSCsbJDBMRUHY-MgLvm30htgcA2GKghQZQ13498nmBWiAovKdYmRJ07pVJsf44_o4vBXA1yCr0Xew"/>
+              <div class="image-card-badge">
+                <span class="material-symbols-outlined text-[14px]">visibility</span>
+                <span>Sector Case Study ↗</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            </div>
+            <div class="p-space-md flex flex-col gap-space-xs">
+              <span class="font-label-sm text-label-sm text-primary font-bold uppercase">INDUSTRY 4.0 MES</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Precision Manufacturing</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Shop-floor MES to S/4HANA synchronization, automated optical defect classification, and real-time OEE optimization.</p>
+            </div>
+          </div>
+          <!-- Higher Education -->
+          <div class="group relative rounded-2xl overflow-hidden bg-surface-container-low shadow-md hover:-translate-y-1.5 transition-all image-card-clickable" onclick="openIndustryModal('education')">
+            <div class="h-48 w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Grand architectural campus interior of a prestigious university research library with warm bronze lamps, modern computing pods, and high vaulted timber ceilings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtsO6VaPa_vpyYWwA2eshazcErCroLzZx1ANDtL8LACc7k30Vc-mdab_EkdqRAl73jINYRWOo5nu6t0pdKQJIbU-7bY_k_doSDC3IEe0AMTPLdWP0kBtFfjP3k1-38WTaQWCGJ5Q0EgJ4dtMzWQlqj0CH0B8ZUqFCfXu2U0-0fAkxzPPtMWgU2PIvBiIN1U_1vJG1R9P_HjPZ-a83o5COywnl2ZEUCSim-WU7voJTZhqcjjUBNpmewAQ"/>
+              <div class="image-card-badge">
+                <span class="material-symbols-outlined text-[14px]">visibility</span>
+                <span>Sector Case Study ↗</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            </div>
+            <div class="p-space-md flex flex-col gap-space-xs">
+              <span class="font-label-sm text-label-sm text-secondary font-bold uppercase">FERPA SOVEREIGN</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Higher Education</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Campus-wide ERP modernization, endowment financial modeling, and unified student information portals.</p>
+            </div>
+          </div>
+          <!-- Textile & Apparel Supply Chains -->
+          <div class="group relative rounded-2xl overflow-hidden bg-surface-container-low shadow-md hover:-translate-y-1.5 transition-all image-card-clickable" onclick="openIndustryModal('textile')">
+            <div class="h-48 w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="High tech automated textile weaving and design facility with precision looms, rich deep crimson and gold fabrics, and digital robotic material sorting systems." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDupE-wzD5Ba-oNYbzUhiZco5VAoiPLHPEvLNuwQ6mRKjGqq0fGDFKrpYbKN1wFa7ljzEaH3oFFFlNdcyBAZaxAp62gM34thirGEJveo4PGlO4iXxn16gg3BX9lE8ubDfkU1UCpM4jiJ-YHNDbOGNdkVX9HnQe4HR8pIEAX-sZae0nJDw2p0XO4xbweW2E7e7hmA2i_7IF0FBnPKz925ZslH_TgFHseFLKfyAqP9WK2LSuAvG05Fru8fg"/>
+              <div class="image-card-badge">
+                <span class="material-symbols-outlined text-[14px]">visibility</span>
+                <span>Sector Case Study ↗</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            </div>
+            <div class="p-space-md flex flex-col gap-space-xs">
+              <span class="font-label-sm text-label-sm text-tertiary font-bold uppercase">GLOBAL SCM &amp; PLM</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Textile &amp; Apparel</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Omnichannel supply chain orchestration, multi-country tariff management, and automated dynamic inventory allocation.</p>
+            </div>
+          </div>
+          <!-- Logistics & Freight Transport -->
+          <div class="group relative rounded-2xl overflow-hidden bg-surface-container-low shadow-md hover:-translate-y-1.5 transition-all image-card-clickable" onclick="openIndustryModal('logistics')">
+            <div class="h-48 w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Intermodal freight terminal and smart shipping logistics hub illuminated at dusk with warm golden dock lights, automated electric container cranes, and digital routing screens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_7fsYS6pUkEfPDxEdHsKgxXSLLKGsTN0ZNCNj3KQYMYDKNJcstZkUnEdJprVsoXEDxxg0N3WdVkbbpxr0wiLwZacT_tBWAVZs2bKSbO17qW39bw555Ujcbf2xeUJQYvanNXS1ujIxZCfTlHu_CI-uDfklBBGogntw5o-Dg-EwTCm-Kya5AC8mSxoDgCUTlK_zjli6EoRo3_Gr79RhM0nUyf1TnXce12JfnlwV-nh6DZ5YiH-oQn37NA"/>
+              <div class="image-card-badge">
+                <span class="material-symbols-outlined text-[14px]">visibility</span>
+                <span>Sector Case Study ↗</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            </div>
+            <div class="p-space-md flex flex-col gap-space-xs">
+              <span class="font-label-sm text-label-sm text-primary font-bold uppercase">EVENT-DRIVEN DISPATCH</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Logistics &amp; Transport</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Fleet telematics integration, SAP Transportation Management (TM), and automated cold-chain regulatory tracking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. 4D DELIVERY & FOLLOW-THE-SUN GLOBAL DELIVERY -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl bg-surface-container" id="delivery-framework">
+      <div class="flex flex-col gap-space-xl">
+        <!-- 4D Delivery Framework -->
+        <div class="flex flex-col gap-space-md">
+          <div class="flex flex-col gap-space-xs max-w-2xl">
+            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Disciplined Execution Methodology</span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">The 4D Delivery Paradigm</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">Every sovereign engagement follows a mathematically disciplined, zero-ambiguity lifecycle.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-sm">
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col justify-between">
+              <div>
+                <span class="font-headline-md text-headline-md text-primary font-bold">01</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-space-xs">DISCOVER</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Comprehensive codebase analysis, architectural debt audit, dependency mapping, and regulatory mandate assessment.</p>
+              </div>
+              <div class="mt-space-md pt-space-xs bg-surface-container-low p-space-xs rounded font-label-sm text-label-sm text-primary font-semibold">
+                Deliverable: Target State Blueprint
+              </div>
+            </div>
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col justify-between">
+              <div>
+                <span class="font-headline-md text-headline-md text-secondary font-bold">02</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-space-xs">DESIGN</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Clean Core topology models, zero-trust cryptographic schematics, interface contracts, and staging validation suites.</p>
+              </div>
+              <div class="mt-space-md pt-space-xs bg-surface-container-low p-space-xs rounded font-label-sm text-label-sm text-secondary font-semibold">
+                Deliverable: Formal Verification Spec
+              </div>
+            </div>
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col justify-between">
+              <div>
+                <span class="font-headline-md text-headline-md text-tertiary font-bold">03</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-space-xs">DEPLOY</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Zero-downtime blue/green rollouts, live data migration runs with cryptographic hashing, and automated regression pass.</p>
+              </div>
+              <div class="mt-space-md pt-space-xs bg-surface-container-low p-space-xs rounded font-label-sm text-label-sm text-tertiary font-semibold">
+                Deliverable: Sovereign Production Sign-Off
+              </div>
+            </div>
+            <div class="p-space-md rounded-xl bg-surface shadow-sm flex flex-col justify-between">
+              <div>
+                <span class="font-headline-md text-headline-md text-primary font-bold">04</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-space-xs">DRIVE</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Follow-the-Sun L3 engineering oversight, autonomous anomaly healing, and bi-annual Clean Core release adoption.</p>
+              </div>
+              <div class="mt-space-md pt-space-xs bg-surface-container-low p-space-xs rounded font-label-sm text-label-sm text-primary font-semibold">
+                Deliverable: 24/7/365 Continuous Assurance
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Follow-The-Sun Global Sync Grid -->
+        <div class="p-space-lg rounded-2xl bg-surface shadow-md" id="global-sync">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+            <div class="lg:col-span-5 flex flex-col gap-space-sm">
+              <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-bold">24-Hour Continuous Engineering</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Follow-the-Sun Synchronous Delivery</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                By aligning operational hubs across Warrenville (USA HQ), London (UK Gateway), and offshore delivery centers in India, Sumeru achieves unbroken 24-hour sprint velocity and emergency response with zero downtime handoffs.
+              </p>
+              <div class="flex flex-col gap-space-xs pt-space-xs">
+                <div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-[18px]">business</span>
+                    <span class="font-label-md text-label-md text-on-surface font-semibold">Warrenville, IL (HQ)</span>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-primary font-bold">CST / UTC-6 • Executive Core</span>
+                </div>
+                <div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-secondary text-[18px]">apartment</span>
+                    <span class="font-label-md text-label-md text-on-surface font-semibold">London Regional Hub</span>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-secondary font-bold">GMT / UTC+0 • EMEA Advisory</span>
+                </div>
+                <div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-tertiary text-[18px]">location_city</span>
+                    <span class="font-label-md text-label-md text-on-surface font-semibold">India Excellence Centers</span>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-tertiary font-bold">IST / UTC+5:30 • Continuous Eng</span>
+                </div>
+              </div>
+            </div>
+            <!-- World Follow-The-Sun SVG Map Visualization -->
+            <div class="lg:col-span-7 bg-surface-container-low p-space-md rounded-xl animation-interactive-container">
+              <div class="animation-trigger-badge" onclick="openAnimationOverlay('global_sync')">
+                <span class="material-symbols-outlined text-[14px]">fullscreen</span>
+                <span>Expand 24hr Sync Animation</span>
+              </div>
+              <svg class="w-full aspect-[2/1] cursor-pointer" fill="none" viewbox="0 0 700 350" onclick="openAnimationOverlay('global_sync')">
+                <!-- World Simplified Dot Grid Outline -->
+                <circle class="animate-ping" cx="170" cy="130" fill="#775a00" r="4.5"></circle>
+                <circle cx="170" cy="130" fill="#775a00" r="5"></circle>
+                <text fill="#775a00" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" text-anchor="middle" x="170" y="115">WARRENVILLE, IL</text>
+                <text fill="#4e4635" font-family="Plus Jakarta Sans" font-size="7.5" text-anchor="middle" x="170" y="148">USA Global HQ</text>
+                <circle class="animate-ping" cx="360" cy="110" fill="#974355" r="4.5"></circle>
+                <circle cx="360" cy="110" fill="#974355" r="5"></circle>
+                <text fill="#974355" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" text-anchor="middle" x="360" y="95">LONDON HUB</text>
+                <text fill="#4e4635" font-family="Plus Jakarta Sans" font-size="7.5" text-anchor="middle" x="360" y="128">EMEA Regional</text>
+                <circle class="animate-ping" cx="530" cy="180" fill="#8c4f1c" r="4.5"></circle>
+                <circle cx="530" cy="180" fill="#8c4f1c" r="5"></circle>
+                <text fill="#8c4f1c" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" text-anchor="middle" x="530" y="165">INDIA CENTERS</text>
+                <text fill="#4e4635" font-family="Plus Jakarta Sans" font-size="7.5" text-anchor="middle" x="530" y="198">Core Development</text>
+                <!-- Continuous Follow The Sun Interlink Arcs -->
+                <path class="animate-dash-stream" d="M 170 130 Q 265 60 360 110" fill="none" stroke="#c59b27" stroke-width="2"></path>
+                <path class="animate-dash-stream" d="M 360 110 Q 445 100 530 180" fill="none" stroke="#c59b27" stroke-width="2"></path>
+                <path d="M 530 180 Q 350 280 170 130" fill="none" opacity="0.6" stroke="#974355" stroke-dasharray="4 4" stroke-width="2"></path>
+                <!-- Central Handshake Status Indicator -->
+                <rect fill="#fff8f6" height="34" rx="8" stroke="#c59b27" stroke-width="1.2" width="160" x="270" y="270"></rect>
+                <circle cx="286" cy="287" fill="#775a00" r="4"></circle>
+                <text fill="#201a18" font-family="Plus Jakarta Sans" font-size="8.5" font-weight="600" x="298" y="291">SYNC CYCLE: NOMINAL</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. STRATEGIC ALLIANCES & EXECUTIVE CONSULTATION -->
+    <section class="w-full px-margin-sm lg:px-margin-lg py-space-xl" id="executive-dispatch">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg">
+        <!-- Left: Strategic Alliances & Direct Contact HQ Details -->
+        <div class="lg:col-span-5 flex flex-col gap-space-lg">
+          <div class="flex flex-col gap-space-xs">
+            <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest font-bold">Ecosystem Verification</span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">Strategic Global Alliances</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Leveraging pre-certified enterprise tier relationships to expedite critical migrations and sovereign deployments.
+            </p>
+          </div>
+          <!-- Alliance Badges 2x2 -->
+          <div class="grid grid-cols-2 gap-space-sm">
+            <div class="p-space-sm rounded-xl bg-surface-container shadow-sm flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-primary text-[22px]">verified</span>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-bold">Microsoft</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Gold Cloud Partner</span>
+              </div>
+            </div>
+            <div class="p-space-sm rounded-xl bg-surface-container shadow-sm flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-secondary text-[22px]">database</span>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-bold">Kalido MDM</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Center of Excellence</span>
+              </div>
+            </div>
+            <div class="p-space-sm rounded-xl bg-surface-container shadow-sm flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-tertiary text-[22px]">swap_horiz</span>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-bold">Informatica</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Certified Integration</span>
+              </div>
+            </div>
+            <div class="p-space-sm rounded-xl bg-surface-container shadow-sm flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-primary text-[22px]">cloud</span>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-bold">AWS Network</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Advanced Architecture</span>
+              </div>
+            </div>
+          </div>
+          <!-- Headquarters Direct Box -->
+          <div class="p-space-md rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+            <span class="font-label-sm text-label-sm text-primary uppercase font-bold">GLOBAL EXECUTIVE HEADQUARTERS</span>
+            <div class="font-headline-sm text-headline-sm text-on-surface font-semibold">Sumeru Technologies LLC</div>
+            <div class="font-body-sm text-body-sm text-on-surface-variant">
+              28373 Davis Parkway, Suite 700<br/>
+              Warrenville, IL 60555, United States
+            </div>
+            <div class="pt-space-xs flex flex-col gap-1 font-body-sm text-body-sm text-on-surface font-medium">
+              <div class="flex items-center gap-space-xs">
+                <span class="material-symbols-outlined text-primary text-[18px]">call</span>
+                <span>Direct: +1 331 888 9060</span>
+              </div>
+              <div class="flex items-center gap-space-xs">
+                <span class="material-symbols-outlined text-secondary text-[18px]">mail</span>
+                <span>Executive Dispatch: hr@sumerutechnologies.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Interactive Consultation Dispatch Request Form -->
+        <div class="lg:col-span-7">
+          <div class="p-space-lg rounded-2xl bg-surface-container-low shadow-xl flex flex-col gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-surface text-secondary font-label-sm text-label-sm w-fit font-bold">
+                <span class="material-symbols-outlined text-[14px]">lock</span>
+                SECURE ENCRYPTED CHANNEL
+              </div>
+              <h3 class="font-headline-md text-headline-md text-on-surface">Initiate Strategic Architectural Advisory</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Direct access to our senior engineering partners under mutual NDA protection.</p>
+            </div>
+            <form class="flex flex-col gap-space-sm" id="dispatch-form" onsubmit="handleDispatchSubmit(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                <div class="flex flex-col gap-1">
+                  <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Executive Name *</label>
+                  <input class="w-full px-space-md py-space-sm rounded-lg bg-surface text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. Eleanor Vance" required="" type="text"/>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Corporate Email *</label>
+                  <input class="w-full px-space-md py-space-sm rounded-lg bg-surface text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="vance@enterprise.com" required="" type="email"/>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                <div class="flex flex-col gap-1">
+                  <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Organization / Enterprise *</label>
+                  <input class="w-full px-space-md py-space-sm rounded-lg bg-surface text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Global Logistics Corp" required="" type="text"/>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Primary Focus Practice *</label>
+                  <select class="w-full px-space-md py-space-sm rounded-lg bg-surface text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="sap">SAP S/4HANA &amp; Clean Core Architecture</option>
+                    <option value="ai">Private Sovereign AI / SLM Mesh</option>
+                    <option value="cloud">Hybrid Multi-Cloud Migration</option>
+                    <option value="data">Modern Data Fabric &amp; MDM</option>
+                    <option value="audit">Architecture Audit &amp; ALM Governance</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Scope of Mandate / Architectural Challenge</label>
+                <textarea class="w-full px-space-md py-space-sm rounded-lg bg-surface text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Describe current enterprise challenges, legacy constraints, timeline, and SLA expectations..." rows="3"></textarea>
+              </div>
+              <div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm pt-space-xs">
+                <input class="rounded accent-primary w-4 h-4" id="nda-box" type="checkbox"/>
+                <label for="nda-box">Request mutual non-disclosure agreement prior to technical discovery</label>
+              </div>
+              <button class="relative overflow-hidden w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-md hover:bg-primary hover:text-on-primary transition-all mt-space-xs sheen-layer" type="submit">
+                <span class="material-symbols-outlined text-[18px]">send</span>
+                <span>Dispatch Advisory Request</span>
+              </button>
+            </form>
+            <!-- Success State with Live Ticket ID, Partner, and SLA -->
+            <div class="hidden p-space-md rounded-xl bg-surface text-on-surface flex flex-col gap-space-sm shadow-sm border border-primary/20" id="dispatch-success">
+              <div class="flex items-center gap-space-sm">
+                <span class="material-symbols-outlined text-primary text-[32px]">check_circle</span>
+                <div class="flex flex-col">
+                  <span class="font-label-md text-label-md font-bold">Mandate Dispatched Successfully</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">Your architectural brief has been recorded securely in our Sovereign Advisory Queue.</span>
+                </div>
+              </div>
+              <div class="p-space-sm rounded-lg bg-surface-container grid grid-cols-1 sm:grid-cols-2 gap-space-xs font-body-sm text-body-sm">
+                <div>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant block">TRACKING TICKET:</span>
+                  <span class="font-mono font-bold text-primary" id="ticket-id-display">SUM-ADV-2501-A98B</span>
+                </div>
+                <div>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant block">ASSIGNED PARTNER:</span>
+                  <span class="font-semibold text-on-surface" id="ticket-partner-display">Senior Architecture Lead</span>
+                </div>
+                <div>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant block">TARGET SLA CALLBACK:</span>
+                  <span class="font-semibold text-secondary" id="ticket-target-display">Within 4 business hours</span>
+                </div>
+                <div>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant block">CRYPTOGRAPHIC SEAL:</span>
+                  <span class="font-mono text-[11px] text-tertiary" id="ticket-seal-display">SHA256-VERIFIED</span>
+                </div>
+              </div>
+              <button onclick="document.getElementById('dispatch-form').classList.remove('hidden'); document.getElementById('dispatch-success').classList.add('hidden');" class="text-primary font-label-sm text-label-sm self-start hover:underline">
+                Dispatch another consultation request &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full bg-surface-container-low shadow-[0_-1px_12px_rgba(0,0,0,0.03)]">
+  <div class="w-full px-margin-sm lg:px-margin-lg py-space-xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg">
+      <div class="lg:col-span-2 flex flex-col gap-space-md pr-space-lg">
+        <div class="flex items-center gap-space-sm">
+          <div class="flex flex-col">
+            <span class="font-headline-md text-headline-md text-on-surface">Sumeru Technologies</span>
+            <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest">High-Stakes Enterprise Architecture</span>
+          </div>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-md">Pioneering mission-critical enterprise transformations, intelligent automation, and bespoke SAP architectural engineering for global high-velocity enterprises.</p>
+        <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">location_on</span>
+            <span>28373 Davis Parkway, Suite 700, Warrenville, IL 60555</span>
+          </div>
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">call</span>
+            <span>+1 331 888 9060</span>
+          </div>
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">mail</span>
+            <span>hr@sumerutechnologies.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-space-sm">
+        <span class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface font-semibold">Solutions</span>
+        <div class="flex flex-col gap-space-xs">
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="enterprise-solutions" href="#architectural-suites">Cloud Infrastructure</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="enterprise-solutions" href="#architectural-suites">Enterprise Security</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-and-automation" href="#sovereign-pipeline">Intelligent Automation</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="enterprise-solutions" href="#architectural-suites">Modern Data Engineering</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="enterprise-solutions" href="#architectural-suites">Core Modernization</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-space-sm">
+        <span class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface font-semibold">Practices &amp; SAP</span>
+        <div class="flex flex-col gap-space-xs">
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="sap-architecture" href="#sap-architecture">SAP S/4HANA Migration</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="sap-architecture" href="#sap-architecture">BTP &amp; Extensibility</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-and-automation" href="#sovereign-pipeline">Generative AI Orchestration</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="industry-practices" href="#industry-practices">Financial Services</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="industry-practices" href="#industry-practices">Precision Manufacturing</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-space-sm">
+        <span class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface font-semibold">Governance &amp; Portal</span>
+        <div class="flex flex-col gap-space-xs">
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="client-portal-access" href="#" onclick="PortalController.openModal()">Client Portal Login</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="executive-insights" href="#about-sumeru">Executive Briefings</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="careers-global" href="#global-sync">Careers &amp; Culture</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact-headquarters" href="#executive-dispatch">Advisory Consultation</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact-headquarters" href="#global-sync">Global Offices</a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-space-xl pt-space-md bg-surface-container/60 rounded-xl px-space-md py-space-sm flex flex-col md:flex-row items-center justify-between gap-space-sm">
+      <span class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Sumeru Technologies LLC. All rights reserved. Warrenville, IL.</span>
+      <div class="flex items-center gap-space-md">
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Terms of Engagement</a>
+        <a class="font-label-sm text-label-sm text-tertiary hover:text-on-surface transition-colors" data-path="client-portal-access" href="#" onclick="PortalController.openModal()">Enterprise Security Disclosure</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL 1: ARCHITECTURAL SPECIFICATION MODAL -->
+<div id="spec-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-full max-w-2xl bg-surface rounded-2xl shadow-2xl p-space-lg flex flex-col gap-space-md modal-content-anim max-h-[90vh] overflow-y-auto custom-modal-scroll">
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <span id="modal-spec-category" class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">SOVEREIGN AI SUITE</span>
+        <h3 id="modal-spec-title" class="font-headline-md text-headline-md text-on-surface">Private Enterprise AI &amp; Automation</h3>
+      </div>
+      <button onclick="SolutionsController.closeSpecificationModal()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    <div class="flex flex-col gap-space-xs">
+      <p id="modal-spec-headline" class="font-body-md text-body-md text-on-surface font-semibold"></p>
+      <p id="modal-spec-overview" class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"></p>
+    </div>
+    <div class="flex flex-col gap-space-xs">
+      <span class="font-label-sm text-label-sm text-primary uppercase font-bold">Standard Deliverables:</span>
+      <ul id="modal-spec-deliverables" class="flex flex-col gap-space-xs"></ul>
+    </div>
+    <div class="p-space-sm rounded-xl bg-surface-container flex items-center justify-between">
+      <div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant block">ENTERPRISE SLA GUARANTEE:</span>
+        <span id="modal-spec-sla" class="font-label-md text-label-md text-primary font-bold"></span>
+      </div>
+      <div class="flex flex-col items-end">
+        <span class="font-label-sm text-label-sm text-on-surface-variant">COMPLIANCE:</span>
+        <div id="modal-spec-compliance" class="flex items-center gap-1 mt-1"></div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between pt-space-xs border-t border-outline-variant/30">
+      <button onclick="SolutionsController.closeSpecificationModal()" class="btn-cancel-action px-space-md py-space-xs rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors cursor-pointer">
+        Cancel &amp; Close
+      </button>
+      <div class="flex items-center gap-space-xs">
+        <button id="modal-spec-add-cart" type="button" class="px-space-md py-space-xs rounded-xl bg-secondary text-on-secondary font-label-md text-label-md hover:bg-secondary-container hover:text-on-secondary-container transition-all cursor-pointer font-bold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">add</span>
+          <span>Add to Mandate Cart</span>
+        </button>
+        <a href="#executive-dispatch" onclick="SolutionsController.closeSpecificationModal()" class="px-space-md py-space-xs rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all font-bold">
+          Request Advisory On This Suite
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: SAP CLEAN CORE AUDIT CALCULATOR -->
+<div id="clean-core-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-full max-w-xl bg-surface rounded-2xl shadow-2xl p-space-lg flex flex-col gap-space-md modal-content-anim max-h-[90vh] overflow-y-auto custom-modal-scroll">
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-widest">SAP CENTER OF EXCELLENCE</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface">Clean Core Readiness Audit</h3>
+      </div>
+      <button onclick="CleanCoreController.closeAuditModal()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    <div id="audit-form-view" class="flex flex-col gap-space-sm">
+      <p class="font-body-sm text-body-sm text-on-surface-variant">
+        Input your organization's SAP footprint to calculate your real-time Clean Core compliance score and generate customized tier decoupling recommendations.
+      </p>
+      <form onsubmit="CleanCoreController.submitAudit(event)" class="flex flex-col gap-space-sm">
+        <div class="flex flex-col gap-1">
+          <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Current SAP Version</label>
+          <select id="sap-version-input" class="w-full px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm border border-outline-variant/40">
+            <option value="ECC 6.0 EHP8">SAP ECC 6.0 (Legacy)</option>
+            <option value="S/4HANA 1909">SAP S/4HANA 1909 / 2020</option>
+            <option value="S/4HANA 2023">SAP S/4HANA 2023 (Clean Core Target)</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Estimated Custom 'Z' Programs / Tables Count</label>
+          <input id="sap-zcount-input" type="number" min="0" max="10000" value="120" class="w-full px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm border border-outline-variant/40"/>
+        </div>
+        <div class="flex items-center gap-space-xs pt-1">
+          <input id="sap-directdb-input" type="checkbox" class="accent-primary w-4 h-4 rounded"/>
+          <label for="sap-directdb-input" class="font-body-sm text-body-sm text-on-surface">Direct standard table modifications or User Exits present?</label>
+        </div>
+        <div class="grid grid-cols-2 gap-space-sm">
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">SAP BTP Extensibility</label>
+            <select id="sap-btp-input" class="w-full px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm border border-outline-variant/40">
+              <option value="Pilot">Pilot Adoption</option>
+              <option value="Enterprise">Enterprise Production</option>
+              <option value="None">None (In Core ABAP)</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Industry Sector</label>
+            <select id="sap-industry-input" class="w-full px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm border border-outline-variant/40">
+              <option value="Manufacturing">Precision Manufacturing</option>
+              <option value="Healthcare">Healthcare & Life Sciences</option>
+              <option value="Energy">Energy, Oil & Gas</option>
+              <option value="Logistics">Supply Chain & Logistics</option>
+            </select>
+          </div>
+        </div>
+        <button id="sap-audit-submit-btn" type="submit" class="relative overflow-hidden w-full inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg shadow-md hover:bg-secondary-container hover:text-on-secondary-container transition-all mt-space-xs">
+          <span>Calculate Clean Core Index</span>
+        </button>
+      </form>
+    </div>
+    <div id="audit-result-view" class="hidden flex flex-col gap-space-md">
+      <div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between">
+        <div>
+          <span class="font-label-sm text-label-sm text-on-surface-variant block">CLEAN CORE SCORE</span>
+          <span id="audit-score-num" class="font-headline-xl text-headline-xl font-bold text-primary">82/100</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span id="audit-grade" class="px-space-sm py-0.5 rounded bg-primary-container text-on-primary-container font-label-md text-label-md font-bold"></span>
+          <span id="audit-risk" class="font-body-sm text-[12px] text-tertiary mt-1 font-semibold"></span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Lifecycle Savings Projection:</span>
+        <span id="audit-savings" class="font-label-md text-label-md text-secondary font-bold"></span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Target Architectural Pathway:</span>
+        <span id="audit-pathway" class="font-body-sm text-body-sm text-on-surface"></span>
+      </div>
+      <div class="flex flex-col gap-space-xs">
+        <span class="font-label-sm text-label-sm text-primary uppercase font-bold">Tier Decoupling Recommendations:</span>
+        <div id="audit-tier-recs" class="flex flex-col gap-1"></div>
+      </div>
+      <div class="flex items-center justify-between pt-space-xs">
+        <button onclick="CleanCoreController.resetAuditForm()" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface">
+          &larr; Re-run calculation
+        </button>
+        <button onclick="CleanCoreController.closeAuditModal()" class="px-space-md py-space-xs rounded-xl bg-primary text-on-primary font-label-md text-label-md">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: SOVEREIGN PIPELINE SIMULATION RESULTS -->
+<div id="sim-result-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-full max-w-2xl bg-surface rounded-2xl shadow-2xl p-space-lg flex flex-col gap-space-md modal-content-anim max-h-[90vh] overflow-y-auto custom-modal-scroll">
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">SOVEREIGN AIR-GAPPED SIMULATION</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface">Deterministic Reasoning Trace</h3>
+      </div>
+      <button onclick="PipelineController.closeSimulationModal()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    <div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container">
+      <div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant block">EXECUTION ID:</span>
+        <span id="sim-exec-id" class="font-mono font-bold text-primary"></span>
+      </div>
+      <div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant block">TOTAL PIPELINE LATENCY:</span>
+        <span id="sim-latency" class="font-semibold text-secondary"></span>
+      </div>
+    </div>
+    <div class="flex flex-col gap-1">
+      <span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Final Output Synthesis:</span>
+      <p id="sim-output" class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface border border-outline-variant/30"></p>
+    </div>
+    <div class="flex flex-col gap-space-xs">
+      <span class="font-label-sm text-label-sm text-primary uppercase font-bold">7-Stage Execution Breakdown:</span>
+      <div id="sim-stages-list" class="flex flex-col gap-1"></div>
+    </div>
+    <div class="flex flex-col gap-1">
+      <span class="font-label-sm text-label-sm text-tertiary uppercase font-bold">Deterministic Provenance Trace:</span>
+      <div id="sim-provenance" class="flex flex-col gap-1"></div>
+    </div>
+    <div class="flex justify-end pt-space-xs">
+      <button onclick="PipelineController.closeSimulationModal()" class="px-space-md py-space-xs rounded-xl bg-primary text-on-primary font-label-md text-label-md">
+        Close Trace
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: CLIENT PORTAL ACCESS -->
+<div id="portal-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-full max-w-xl bg-surface rounded-2xl shadow-2xl p-space-lg flex flex-col gap-space-md modal-content-anim max-h-[90vh] overflow-y-auto custom-modal-scroll">
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-widest">SUMERU SOVEREIGN CLOUD</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface">Client Enterprise Portal</h3>
+      </div>
+      <button onclick="PortalController.closeModal()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    <div id="portal-login-view" class="flex flex-col gap-space-sm">
+      <p class="font-body-sm text-body-sm text-on-surface-variant">
+        Authenticate using your corporate single sign-on or enterprise tenant access key to inspect cluster health and active advisory deliveries.
+      </p>
+      <form onsubmit="PortalController.handleLogin(event)" class="flex flex-col gap-space-sm">
+        <div class="flex flex-col gap-1">
+          <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Corporate Email</label>
+          <input id="portal-email" type="email" value="executive@enterprise.com" required class="w-full px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm border border-outline-variant/40"/>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Enterprise Authorization Key</label>
+          <input id="portal-key" type="password" value="sumeru-sov-2025" required class="w-full px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm border border-outline-variant/40"/>
+        </div>
+        <div id="portal-error" class="hidden p-space-xs rounded bg-error-container text-on-error-container font-label-sm text-label-sm"></div>
+        <button type="submit" class="relative overflow-hidden w-full inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-md hover:bg-primary hover:text-on-primary transition-all mt-space-xs font-bold">
+          <span>Authenticate Session</span>
+        </button>
+        <span class="text-[11px] text-center text-on-surface-variant">Demo credentials pre-filled for institutional review.</span>
+      </form>
+    </div>
+    <div id="portal-dashboard-view" class="hidden flex flex-col gap-space-md">
+      <div class="flex flex-col">
+        <span id="portal-client-title" class="font-headline-sm text-headline-sm text-on-surface font-bold"></span>
+        <span id="portal-org-title" class="font-body-sm text-body-sm text-on-surface-variant"></span>
+      </div>
+      <div class="grid grid-cols-3 gap-space-xs">
+        <div class="p-space-sm rounded-xl bg-surface-container flex flex-col">
+          <span class="font-label-sm text-label-sm text-on-surface-variant">UPTIME</span>
+          <span id="portal-stat-uptime" class="font-label-lg text-label-lg text-primary font-bold"></span>
+        </div>
+        <div class="p-space-sm rounded-xl bg-surface-container flex flex-col">
+          <span class="font-label-sm text-label-sm text-on-surface-variant">NODES</span>
+          <span id="portal-stat-nodes" class="font-label-lg text-label-lg text-secondary font-bold"></span>
+        </div>
+        <div class="p-space-sm rounded-xl bg-surface-container flex flex-col">
+          <span class="font-label-sm text-label-sm text-on-surface-variant">SAP CORE</span>
+          <span id="portal-stat-score" class="font-label-lg text-label-lg text-tertiary font-bold"></span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-space-xs">
+        <span class="font-label-sm text-label-sm text-primary uppercase font-bold">Active Cluster Deployments:</span>
+        <div id="portal-deployments-list" class="flex flex-col gap-1"></div>
+      </div>
+      <div class="flex justify-end pt-space-xs">
+        <button onclick="document.getElementById('portal-dashboard-view').classList.add('hidden'); document.getElementById('portal-login-view').classList.remove('hidden'); PortalController.closeModal();" class="px-space-md py-space-xs rounded-xl bg-surface-container text-on-surface font-label-md text-label-md">
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL 5: UNIVERSAL INTERACTIVE ANIMATION OVERLAY (WITH CLEAR CANCEL OPTION) -->
+<div id="animation-overlay-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/75 backdrop-blur-md modal-backdrop-anim">
+  <div class="relative w-full max-w-5xl bg-surface rounded-3xl shadow-2xl p-space-md md:p-space-lg flex flex-col gap-space-md modal-content-anim max-h-[92vh] overflow-y-auto custom-modal-scroll border border-outline-variant/30">
+    <!-- Overlay Header with Prominent Close 'X' and Cancel option -->
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <div class="flex items-center gap-space-xs">
+          <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+          <span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">LIVE INTERACTIVE ANIMATION OVERLAY</span>
+        </div>
+        <h3 id="anim-overlay-title" class="font-headline-md text-headline-md text-on-surface font-bold mt-0.5"></h3>
+        <p id="anim-overlay-subtitle" class="font-body-sm text-body-sm text-on-surface-variant"></p>
+      </div>
+      <div class="flex items-center gap-space-xs">
+        <button onclick="AnimationOverlayController.close()" class="px-3 py-1.5 rounded-xl bg-surface-container text-on-surface hover:bg-surface-variant font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1 cursor-pointer" title="Cancel and Return to View">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+          <span>Cancel &amp; Close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dynamic Interactive Canvas Container -->
+    <div id="anim-overlay-content" class="w-full flex flex-col min-h-[380px]"></div>
+  </div>
+</div>
+
+<!-- MODAL 6: REGULATED INDUSTRY CASE STUDY & IMAGE OVERLAY (WITH CLEAR CANCEL OPTION) -->
+<div id="industry-case-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md modal-backdrop-anim">
+  <div class="relative w-full max-w-3xl bg-surface rounded-3xl shadow-2xl p-space-lg flex flex-col gap-space-md modal-content-anim max-h-[90vh] overflow-y-auto custom-modal-scroll border border-outline-variant/30">
+    <!-- Header -->
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <span id="ind-modal-badge" class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-widest"></span>
+        <h3 id="ind-modal-title" class="font-headline-md text-headline-md text-on-surface font-bold"></h3>
+      </div>
+      <button onclick="IndustryController.closeModal()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors cursor-pointer" title="Cancel">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+
+    <!-- Image Banner -->
+    <div class="w-full h-56 rounded-2xl overflow-hidden relative shadow-md">
+      <img id="ind-modal-image" class="w-full h-full object-cover" src="" alt="Industry Case Image"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      <span class="absolute bottom-3 left-4 text-white text-[12px] font-bold tracking-wider font-mono uppercase bg-black/50 px-2 py-0.5 rounded backdrop-blur">
+        PROPRIETARY SECTOR ARCHITECTURE
+      </span>
+    </div>
+
+    <!-- Narrative -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+      <div class="flex flex-col gap-1 p-space-sm rounded-xl bg-surface-container">
+        <span class="font-label-sm text-label-sm text-tertiary uppercase font-bold">Regulatory &amp; Technical Challenge:</span>
+        <p id="ind-modal-challenge" class="font-body-sm text-body-sm text-on-surface leading-relaxed"></p>
+      </div>
+      <div class="flex flex-col gap-1 p-space-sm rounded-xl bg-surface-container">
+        <span class="font-label-sm text-label-sm text-primary uppercase font-bold">Sumeru Sovereign Blueprint:</span>
+        <p id="ind-modal-solution" class="font-body-sm text-body-sm text-on-surface leading-relaxed"></p>
+      </div>
+    </div>
+
+    <!-- Verified Impact Metrics -->
+    <div class="flex flex-col gap-space-xs">
+      <span class="font-label-sm text-label-sm text-primary uppercase font-bold">Quantified Institutional Outcomes:</span>
+      <div id="ind-modal-metrics" class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs"></div>
+    </div>
+
+    <!-- Compliance Frameworks -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="font-label-sm text-label-sm text-on-surface-variant">Validated Standards:</span>
+      <div id="ind-modal-compliance" class="flex items-center gap-1 flex-wrap"></div>
+    </div>
+
+    <!-- Footer Actions with Cancel and Add to Cart -->
+    <div class="flex items-center justify-between pt-space-xs border-t border-outline-variant/30">
+      <button onclick="IndustryController.closeModal()" class="btn-cancel-action px-space-md py-space-xs rounded-xl bg-surface-container text-on-surface font-label-md text-label-md cursor-pointer">
+        Cancel &amp; Close
+      </button>
+      <div class="flex items-center gap-space-xs">
+        <button id="ind-modal-add-cart" type="button" class="px-space-md py-space-xs rounded-xl bg-secondary text-on-secondary font-label-md text-label-md hover:bg-secondary-container hover:text-on-secondary-container transition-all cursor-pointer font-bold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">add</span>
+          <span>Add Sector to Mandate</span>
+        </button>
+        <a href="#executive-dispatch" onclick="IndustryController.closeModal()" class="px-space-md py-space-xs rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all font-bold">
+          Consult Sector Lead
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 7: ARCHITECTURAL MANDATE CART DRAWER (SLIDE-IN) -->
+<div id="mandate-cart-drawer" class="hidden fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-full max-w-md h-full bg-surface shadow-2xl p-space-lg flex flex-col justify-between cart-drawer-in border-l border-outline-variant/30">
+    <div class="flex flex-col gap-space-md">
+      <!-- Drawer Header -->
+      <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+            <span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">ARCHITECTURAL MANDATE CART</span>
+          </div>
+          <h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">Selected Components</h4>
+        </div>
+        <button onclick="MandateCartController.close()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors cursor-pointer" title="Cancel">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Cart Items List Container -->
+      <div id="cart-items-list" class="flex flex-col gap-space-xs max-h-[55vh] overflow-y-auto custom-modal-scroll"></div>
+
+      <!-- Empty State -->
+      <div id="cart-empty-state" class="hidden p-space-lg text-center flex flex-col items-center gap-space-xs text-on-surface-variant">
+        <span class="material-symbols-outlined text-[36px] text-tertiary opacity-40">inventory_2</span>
+        <span class="font-label-md text-label-md font-semibold">Your Mandate Cart is Empty</span>
+        <p class="font-body-sm text-[12px]">Browse our Architectural Suites or Regulated Industries and click "+ Add to Mandate" to assemble your technical brief.</p>
+      </div>
+    </div>
+
+    <!-- Cart Footer Actions -->
+    <div id="cart-footer-actions" class="flex flex-col gap-space-xs pt-space-sm border-t border-outline-variant/30">
+      <div class="flex items-center justify-between text-body-sm text-[12px] text-on-surface-variant">
+        <span>Delivery Assurance:</span>
+        <span class="font-bold text-primary font-mono">100% Non-Negotiable SLA</span>
+      </div>
+      <button onclick="MandateCartController.transferToAdvisory()" class="w-full inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-md hover:bg-primary hover:text-on-primary transition-all font-bold cursor-pointer">
+        <span>Proceed to Advisory Dispatch</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </button>
+      <div class="flex items-center justify-between pt-1">
+        <button onclick="MandateCartController.clear()" class="text-[11px] text-tertiary hover:underline cursor-pointer">
+          Clear All Items
+        </button>
+        <button onclick="MandateCartController.close()" class="text-[11px] text-on-surface-variant hover:text-on-surface cursor-pointer">
+          Cancel &amp; Continue Browsing
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 8: ARCHITECTURAL PILLAR DEEP-DIVE MODAL -->
+<div id="pillar-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-full max-w-xl bg-surface rounded-2xl shadow-2xl p-space-lg flex flex-col gap-space-md modal-content-anim border border-outline-variant/30">
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-widest">ARCHITECTURAL PRACTICE DISCIPLINE</span>
+        <h3 id="pillar-modal-title" class="font-headline-md text-headline-md text-on-surface font-bold"></h3>
+      </div>
+      <button onclick="PillarModalController.close()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors cursor-pointer" title="Cancel">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    <div class="flex flex-col gap-space-xs">
+      <p id="pillar-modal-headline" class="font-body-md text-body-md text-on-surface font-semibold"></p>
+      <p id="pillar-modal-desc" class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"></p>
+    </div>
+    <div class="flex items-center justify-between pt-space-xs border-t border-outline-variant/30">
+      <button onclick="PillarModalController.close()" class="btn-cancel-action px-space-md py-space-xs rounded-xl bg-surface-container text-on-surface font-label-md text-label-md cursor-pointer">
+        Cancel &amp; Close
+      </button>
+      <a href="#executive-dispatch" onclick="PillarModalController.close()" class="px-space-md py-space-xs rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold">
+        Engage on This Practice
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 9: CURRENCY & REGION SWITCHER MODAL -->
+<div id="region-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-full max-w-md bg-surface rounded-2xl shadow-2xl p-space-lg flex flex-col gap-space-md modal-content-anim border border-outline-variant/30">
+    <div class="flex items-start justify-between pb-space-xs border-b border-outline-variant/30">
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">GLOBAL OPERATING REGION</span>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Select Regional Hub</h3>
+      </div>
+      <button onclick="RegionModalController.close()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors cursor-pointer" title="Cancel">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    <div class="flex flex-col gap-space-xs">
+      <button onclick="RegionModalController.select('US • USD')" class="p-space-sm rounded-xl bg-surface-container hover:bg-primary-container hover:text-on-primary-container flex items-center justify-between transition-colors text-left cursor-pointer">
+        <div>
+          <span class="font-bold block">United States (Warrenville IL HQ)</span>
+          <span class="text-[12px] opacity-80">US Dollar • Central Standard Time (UTC-6)</span>
+        </div>
+        <span class="font-mono font-bold">USD</span>
+      </button>
+      <button onclick="RegionModalController.select('UK • GBP')" class="p-space-sm rounded-xl bg-surface-container hover:bg-primary-container hover:text-on-primary-container flex items-center justify-between transition-colors text-left cursor-pointer">
+        <div>
+          <span class="font-bold block">United Kingdom (London Hub)</span>
+          <span class="text-[12px] opacity-80">British Pound • Greenwich Mean Time (UTC+0)</span>
+        </div>
+        <span class="font-mono font-bold">GBP</span>
+      </button>
+      <button onclick="RegionModalController.select('EU • EUR')" class="p-space-sm rounded-xl bg-surface-container hover:bg-primary-container hover:text-on-primary-container flex items-center justify-between transition-colors text-left cursor-pointer">
+        <div>
+          <span class="font-bold block">European Union (Frankfurt Gateway)</span>
+          <span class="text-[12px] opacity-80">Euro • Central European Time (UTC+1)</span>
+        </div>
+        <span class="font-mono font-bold">EUR</span>
+      </button>
+      <button onclick="RegionModalController.select('IN • INR')" class="p-space-sm rounded-xl bg-surface-container hover:bg-primary-container hover:text-on-primary-container flex items-center justify-between transition-colors text-left cursor-pointer">
+        <div>
+          <span class="font-bold block">India (Development Centers)</span>
+          <span class="text-[12px] opacity-80">Indian Rupee • Indian Standard Time (UTC+5:30)</span>
+        </div>
+        <span class="font-mono font-bold">INR</span>
+      </button>
+    </div>
+    <div class="flex justify-end pt-space-xs">
+      <button onclick="RegionModalController.close()" class="btn-cancel-action px-space-md py-space-xs rounded-xl bg-surface-container text-on-surface font-label-md text-label-md cursor-pointer">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 10: RESPONSIVE MOBILE NAVIGATION DRAWER -->
+<div id="mobile-nav-drawer" class="hidden fixed inset-0 z-50 flex justify-start bg-black/60 backdrop-blur-sm modal-backdrop-anim">
+  <div class="relative w-80 h-full bg-surface shadow-2xl p-space-md flex flex-col justify-between overflow-y-auto">
+    <div class="flex flex-col gap-space-md">
+      <div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/30">
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase">Sumeru</span>
+          <span class="font-label-sm text-label-sm text-tertiary tracking-widest uppercase">Technologies</span>
+        </div>
+        <button onclick="NavigationController.closeMobileDrawer()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors cursor-pointer" title="Cancel">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-1">
+        <a href="#" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="home">
+          <span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+          <span>Home</span>
+        </a>
+        <a href="#about-sumeru" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="about-sumeru">
+          <span class="material-symbols-outlined text-secondary text-[18px]">history_edu</span>
+          <span>About Sumeru</span>
+        </a>
+        <a href="#architectural-suites" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="enterprise-solutions">
+          <span class="material-symbols-outlined text-tertiary text-[18px]">layers</span>
+          <span>Solutions Suites</span>
+        </a>
+        <a href="#sovereign-pipeline" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="ai-and-automation">
+          <span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+          <span>Sovereign Pipeline</span>
+        </a>
+        <a href="#sap-architecture" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="sap-architecture">
+          <span class="material-symbols-outlined text-secondary text-[18px]">architecture</span>
+          <span>SAP Clean Core</span>
+        </a>
+        <a href="#industry-practices" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="industry-practices">
+          <span class="material-symbols-outlined text-tertiary text-[18px]">domain</span>
+          <span>Industry Practices</span>
+        </a>
+        <a href="#delivery-framework" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="executive-insights">
+          <span class="material-symbols-outlined text-primary text-[18px]">cycle</span>
+          <span>4D Delivery</span>
+        </a>
+        <a href="#global-sync" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="careers-global">
+          <span class="material-symbols-outlined text-secondary text-[18px]">public</span>
+          <span>Global Operations</span>
+        </a>
+        <a href="#executive-dispatch" class="px-3 py-2 rounded-lg hover:bg-surface-container font-label-md text-on-surface font-semibold flex items-center gap-2" data-path="contact-headquarters">
+          <span class="material-symbols-outlined text-tertiary text-[18px]">mail</span>
+          <span>Advisory Consultation</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col gap-space-xs pt-space-sm border-t border-outline-variant/30">
+      <button onclick="NavigationController.closeMobileDrawer(); openMandateCart();" class="w-full py-2.5 rounded-xl bg-surface-container text-on-surface font-label-md font-bold flex items-center justify-center gap-2 cursor-pointer">
+        <span class="material-symbols-outlined text-[18px]">inventory_2</span>
+        <span>View Mandate Cart</span>
+      </button>
+      <button onclick="NavigationController.closeMobileDrawer(); PortalController.openModal();" class="w-full py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-md font-bold flex items-center justify-center gap-2 cursor-pointer">
+        <span class="material-symbols-outlined text-[18px]">lock</span>
+        <span>Client Portal Access</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING MANDATE CART BADGE BUTTON (ALWAYS EASILY ACCESSIBLE) -->
+<button type="button" onclick="openMandateCart()" class="cart-floating-btn inline-flex items-center gap-2 px-4 py-3 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold shadow-xl border border-primary/20 cursor-pointer">
+  <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+  <span>Mandate Brief</span>
+  <span class="cart-count-badge w-5 h-5 rounded-full bg-secondary text-on-secondary text-[11px] font-bold flex items-center justify-center">2</span>
+</button>
+
+<script src="/static/js/app.js" onerror="this.onerror=null;this.src='../app/static/js/app.js';"></script>
+<script src="app/static/js/app.js" onerror="this.onerror=null;"></script>
+</body>
+</html>

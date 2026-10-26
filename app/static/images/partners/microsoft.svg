@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 46" fill="none">
+  <g transform="translate(4, 5)">
+    <rect x="0" y="0" width="16" height="16" fill="#F25022"/>
+    <rect x="18" y="0" width="16" height="16" fill="#7FBA00"/>
+    <rect x="0" y="18" width="16" height="16" fill="#00A4EF"/>
+    <rect x="18" y="18" width="16" height="16" fill="#FFB900"/>
+  </g>
+  <text x="48" y="24" font-family="'Segoe UI', -apple-system, sans-serif" font-size="18" font-weight="600" fill="#222222">Microsoft</text>
+  <text x="49" y="36" font-family="'Segoe UI', -apple-system, sans-serif" font-size="9" font-weight="600" fill="#004A7F" letter-spacing="0.08em">CERTIFIED PARTNER</text>
+</svg>

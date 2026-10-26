@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 46" fill="none">
+  <g transform="translate(6, 8)">
+    <text x="0" y="20" font-family="'Segoe UI', -apple-system, sans-serif" font-size="22" font-weight="800" fill="#232F3E">aws</text>
+    <!-- AWS Smile arrow -->
+    <path d="M 4 24 Q 22 34 38 23" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="37,20 41,24 37,27" fill="#FF9900"/>
+  </g>
+  <text x="54" y="22" font-family="'Segoe UI', -apple-system, sans-serif" font-size="14" font-weight="700" fill="#232F3E">Amazon Web Services</text>
+  <text x="55" y="34" font-family="'Segoe UI', -apple-system, sans-serif" font-size="8.5" font-weight="600" fill="#004A7F" letter-spacing="0.08em">CONSULTING PARTNER</text>
+</svg>

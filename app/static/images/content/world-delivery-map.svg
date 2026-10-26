@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" fill="none" class="w-full h-auto">
+  <defs>
+    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1F81C2" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#1F81C2" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#1F81C2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="routeGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1F81C2" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#69B531" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1F81C2" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- World Land Outline / Grid Dots (Clean abstract enterprise aesthetic) -->
+  <g opacity="0.25">
+    <!-- North America dot cluster -->
+    <path d="M160,120 Q240,110 300,160 Q280,220 220,250 Q160,200 160,120 Z" fill="#CBD5E1"/>
+    <!-- Europe cluster -->
+    <path d="M470,110 Q530,100 560,150 Q520,200 480,180 Q450,150 470,110 Z" fill="#CBD5E1"/>
+    <!-- Asia / India cluster -->
+    <path d="M620,130 Q740,120 780,220 Q700,320 650,260 Q600,200 620,130 Z" fill="#CBD5E1"/>
+    <!-- South America -->
+    <path d="M260,280 Q320,300 300,420 Q250,400 240,320 Z" fill="#E2E8F0"/>
+    <!-- Africa -->
+    <path d="M480,210 Q560,220 540,360 Q480,380 460,260 Z" fill="#E2E8F0"/>
+    <!-- Australia -->
+    <path d="M780,340 Q860,330 870,400 Q800,420 770,370 Z" fill="#E2E8F0"/>
+  </g>
+
+  <!-- Latitude/Longitude subtle grid -->
+  <line x1="50" y1="250" x2="950" y2="250" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4 6"/>
+  <line x1="500" y1="50" x2="500" y2="450" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4 6"/>
+
+  <!-- Connection Routes -->
+  <!-- USA (Warrenville ~220, 160) to Madrid (~480, 165) -->
+  <path d="M220,160 Q340,90 480,165" stroke="url(#routeGrad1)" stroke-width="2.5" fill="none" stroke-dasharray="6 4" class="route-line-1"/>
+  <!-- Madrid (~480, 165) to India (Hyderabad/Bangalore ~690, 240) -->
+  <path d="M480,165 Q580,140 690,240" stroke="url(#routeGrad1)" stroke-width="2.5" fill="none" stroke-dasharray="6 4" class="route-line-2"/>
+  <!-- Direct USA to India -->
+  <path d="M220,160 Q450,20 690,240" stroke="#69B531" stroke-width="1.5" stroke-opacity="0.4" fill="none" stroke-dasharray="3 3"/>
+
+  <!-- NODE 1: USA (Warrenville, Illinois) -->
+  <g transform="translate(220, 160)">
+    <circle cx="0" cy="0" r="28" fill="url(#hubGlow)"/>
+    <circle cx="0" cy="0" r="10" fill="#004A7F" stroke="#FFFFFF" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="4" fill="#69B531"/>
+    <!-- Label -->
+    <rect x="-85" y="-55" width="170" height="42" rx="6" fill="#0B2545" opacity="0.95"/>
+    <text x="0" y="-36" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">USA HEADQUARTERS</text>
+    <text x="0" y="-22" fill="#93C5FD" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" text-anchor="middle">Warrenville, IL (Chicago Metro)</text>
+  </g>
+
+  <!-- NODE 2: Europe (Madrid, Spain) -->
+  <g transform="translate(480, 165)">
+    <circle cx="0" cy="0" r="24" fill="url(#hubGlow)"/>
+    <circle cx="0" cy="0" r="8" fill="#1F81C2" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="0" cy="0" r="3" fill="#69B531"/>
+    <!-- Label -->
+    <rect x="-65" y="16" width="130" height="38" rx="6" fill="#0B2545" opacity="0.95"/>
+    <text x="0" y="32" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">EUROPE OPERATIONS</text>
+    <text x="0" y="44" fill="#93C5FD" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle">Madrid, Spain</text>
+  </g>
+
+  <!-- NODE 3: India (Hyderabad & Bangalore) -->
+  <g transform="translate(690, 240)">
+    <circle cx="0" cy="0" r="32" fill="url(#hubGlow)"/>
+    <circle cx="0" cy="0" r="11" fill="#004A7F" stroke="#FFFFFF" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="4" fill="#69B531"/>
+    <!-- Label -->
+    <rect x="-95" y="18" width="190" height="44" rx="6" fill="#0B2545" opacity="0.95"/>
+    <text x="0" y="34" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">GLOBAL DELIVERY CENTERS</text>
+    <text x="0" y="48" fill="#93C5FD" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" text-anchor="middle">Hyderabad • Bangalore, India</text>
+  </g>
+</svg>
