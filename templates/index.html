@@ -2,17 +2,19 @@
 
 {% block content %}
 <!-- =======================================================================
-     HERO SECTION (Delta-inspired clean corporate clarity)
+     HERO SECTION (Delta-inspired clean corporate clarity with Ambient Overlay)
      ======================================================================= -->
-<section class="hero-corporate" aria-label="Overview Hero">
-  <div class="sumeru-container">
-    <div class="hero-grid">
+<section class="hero-corporate" aria-label="Overview Hero" style="position: relative; overflow: hidden;">
+  <div class="hero-ambient-mesh"></div>
+  <div class="radar-sweep-scanner"></div>
+  <div class="sumeru-container" style="position: relative; z-index: 10;">
+    <div class="hero-grid" style="grid-template-columns: 1fr; max-width: 840px;">
       
-      <!-- Left: Enterprise Messaging -->
-      <div class="hero-content">
+      <!-- Left: Enterprise Messaging & Architectural Governance -->
+      <div class="hero-content" style="max-width: 100%;">
         <div class="hero-pill">
           <span class="hero-pill-badge">EST. 1994</span>
-          <span>Global Software Services &amp; Systems Integration</span>
+          <span>Global Software Services &amp; High-Stakes Systems Integration</span>
         </div>
 
         <h1 class="hero-headline">
@@ -20,53 +22,29 @@
         </h1>
 
         <p class="hero-supporting">
-          Sumeru Technologies delivers consulting, systems integration and outsourcing solutions that help organizations build, transform and manage critical technology environments.
+          Sumeru Technologies delivers mission-critical consulting, systems integration, SAP Clean Core transitions, and private sovereign AI architectures. We help Fortune 500 and regulated enterprises build, transform, and manage resilient IT estates with single-accountability governance.
         </p>
+
+        <!-- Left Column Enterprise Engagement Standards Box -->
+        <div class="left-col-lead-box" style="margin-top: 18px; margin-bottom: 22px;">
+          <span class="left-col-lead-title">Enterprise Engagement Standards</span>
+          <p style="font-size: 0.8125rem; color: #475569; line-height: 1.6; margin-top: 4px;">
+            Every deployment is bounded by deterministic SLAs, ISO 27001/SOC 2 verification, zero vendor lock-in, and 24/7/365 follow-the-sun engineering.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; font-size: 0.75rem; font-weight: 600; color: #0b2545;">
+            <div>&check; 99.99% Core Uptime SLA</div>
+            <div>&check; Clean Core Decoupling</div>
+            <div>&check; Zero Cloud Egress AI</div>
+            <div>&check; 15-Min P1 Critical Incident</div>
+          </div>
+        </div>
 
         <div class="hero-actions">
           <a href="/services" class="btn btn-primary">
-            EXPLORE OUR SERVICES
+            EXPLORE PRACTICES
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </a>
-          <a href="/contact" class="btn btn-secondary">CONTACT US</a>
-        </div>
-      </div>
-
-      <!-- Right: Blueprint Infrastructure Assurance Card -->
-      <div class="hero-visual-card">
-        <div class="hero-visual-header">
-          <div class="hero-visual-title">Enterprise Systems Delivery</div>
-          <div class="hero-status-tag">Global SLA Active</div>
-        </div>
-
-        <div class="hero-visual-metric-grid">
-          <div class="hero-metric-box">
-            <div class="hero-metric-val">30+ Years</div>
-            <div class="hero-metric-lbl">Continuous Heritage</div>
-          </div>
-          <div class="hero-metric-box">
-            <div class="hero-metric-val">3 Continents</div>
-            <div class="hero-metric-lbl">USA • Europe • India</div>
-          </div>
-        </div>
-
-        <div class="hero-visual-domains">
-          <div class="hero-domain-row">
-            <span>SAP Practice &amp; S/4HANA Clean Core</span>
-            <span class="badge">Enterprise ERP</span>
-          </div>
-          <div class="hero-domain-row">
-            <span>Systems Integration &amp; Custom Architecture</span>
-            <span class="badge">Middleware</span>
-          </div>
-          <div class="hero-domain-row">
-            <span>Information Management &amp; Security</span>
-            <span class="badge">Data &amp; MDM</span>
-          </div>
-          <div class="hero-domain-row">
-            <span>24x7 Remote Administration &amp; ODC</span>
-            <span class="badge">Managed Ops</span>
-          </div>
+          <a href="/contact" class="btn btn-secondary">SCHEDULE ARCHITECTURAL ADVISORY</a>
         </div>
       </div>
 
@@ -233,86 +211,121 @@
     <div class="services-grid">
       
       <!-- 01 CONSULTING -->
-      <div class="service-card">
+      <div class="service-card enterprise-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <div class="service-num">01</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div class="service-num">01</div>
+            <span class="badge" style="font-size: 0.6875rem;">STRATEGY &amp; ALM</span>
+          </div>
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
           </div>
-          <h3 class="service-title">Consulting</h3>
+          <h3 class="service-title">Consulting &amp; Advisory</h3>
           <p class="service-desc">
             Align business strategy and technology architecture through process analysis, system planning, and execution monitoring.
           </p>
+          <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.06); font-size: 0.75rem; color: #475569;">
+            <div>&bull; Architectural TCO &amp; Debt Discovery</div>
+            <div>&bull; Cloud ERP &amp; RISE Migration Roadmap</div>
+          </div>
         </div>
-        <a href="/services/consulting" class="service-explore-link">
+        <a href="/services/consulting" class="service-explore-link" style="margin-top: 12px;">
           Explore Practice &rarr;
         </a>
       </div>
 
       <!-- 02 ENTERPRISE SOLUTIONS -->
-      <div class="service-card">
+      <div class="service-card enterprise-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <div class="service-num">02</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div class="service-num">02</div>
+            <span class="badge" style="font-size: 0.6875rem;">SAP CLEAN CORE</span>
+          </div>
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
           </div>
-          <h3 class="service-title">Enterprise Solutions</h3>
+          <h3 class="service-title">Enterprise Solutions &amp; SAP</h3>
           <p class="service-desc">
-            Real-time applications including SAP Practice, Oracle suites, and transaction systems that power organizational performance.
+            High-transaction ERP deployments including S/4HANA Clean Core migrations, SAP BTP side-by-side extensions, and zero-modification application architectures.
           </p>
+          <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.06); font-size: 0.75rem; color: #475569;">
+            <div>&bull; Brownfield &amp; Selective Data Transition</div>
+            <div>&bull; SAP Cloud ALM &amp; Joule AI Copilots</div>
+          </div>
         </div>
-        <a href="/services/enterprise-solutions" class="service-explore-link">
+        <a href="/services/enterprise-solutions" class="service-explore-link" style="margin-top: 12px;">
           Explore Practice &rarr;
         </a>
       </div>
 
       <!-- 03 INFORMATION MANAGEMENT -->
-      <div class="service-card">
+      <div class="service-card enterprise-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <div class="service-num">03</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div class="service-num">03</div>
+            <span class="badge" style="font-size: 0.6875rem;">KALIDO / ICEBERG</span>
+          </div>
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
           </div>
-          <h3 class="service-title">Information Management</h3>
+          <h3 class="service-title">Information Management &amp; MDM</h3>
           <p class="service-desc">
-            Data warehousing, master data management, storage architecture, and information security frameworks.
+            Master data harmonization in partnership with Kalido and Informatica, Apache Iceberg open lakes, and sovereign vector embedding pipelines.
           </p>
+          <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.06); font-size: 0.75rem; color: #475569;">
+            <div>&bull; Golden Record Harmonization &amp; Lineage</div>
+            <div>&bull; Real-Time Kafka Streaming &amp; CDC Ingest</div>
+          </div>
         </div>
-        <a href="/services/information-management" class="service-explore-link">
+        <a href="/services/information-management" class="service-explore-link" style="margin-top: 12px;">
           Explore Practice &rarr;
         </a>
       </div>
 
       <!-- 04 OUTSOURCING SERVICES -->
-      <div class="service-card">
+      <div class="service-card enterprise-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <div class="service-num">04</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div class="service-num">04</div>
+            <span class="badge" style="font-size: 0.6875rem;">24/7/365 ODC</span>
+          </div>
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
           </div>
-          <h3 class="service-title">Outsourcing Services</h3>
+          <h3 class="service-title">Outsourcing &amp; Managed Ops</h3>
           <p class="service-desc">
-            Remote database and systems administration, application maintenance, and dedicated offshore delivery centers.
+            Continuous follow-the-sun database administration, systems telemetry monitoring, patch compliance, and dedicated offshore excellence centers in India.
           </p>
+          <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.06); font-size: 0.75rem; color: #475569;">
+            <div>&bull; Guaranteed 15-Minute Critical P1 SLA</div>
+            <div>&bull; 24-Hour Continuous Engineering Handoff</div>
+          </div>
         </div>
-        <a href="/services/outsourcing" class="service-explore-link">
+        <a href="/services/outsourcing" class="service-explore-link" style="margin-top: 12px;">
           Explore Practice &rarr;
         </a>
       </div>
 
       <!-- 05 PROFESSIONAL SERVICES -->
-      <div class="service-card">
+      <div class="service-card enterprise-card-interactive" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <div class="service-num">05</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            <div class="service-num">05</div>
+            <span class="badge" style="font-size: 0.6875rem;">SENIOR TALENT</span>
+          </div>
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
           <h3 class="service-title">Professional Services</h3>
           <p class="service-desc">
-            Certified IT consultants, solution architects, and project managers deployed for critical enterprise deliverables.
+            Principal solutions architects, certified SAP BASIS leads, and enterprise cloud specialists deployed for high-stakes transformations and specialized staff augmentation.
           </p>
+          <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.06); font-size: 0.75rem; color: #475569;">
+            <div>&bull; Senior Architects Averaging 15+ Yrs</div>
+            <div>&bull; Rapid Mission-Critical Deployment</div>
+          </div>
         </div>
-        <a href="/services/professional-services" class="service-explore-link">
+        <a href="/services/professional-services" class="service-explore-link" style="margin-top: 12px;">
           Explore Practice &rarr;
         </a>
       </div>

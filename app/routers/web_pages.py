@@ -10,6 +10,7 @@ import os
 import datetime
 
 from app.services.corporate_content import PAGES_DATA, CORPORATE_METADATA
+from app.services.subdomain_enrichment import enrich_page_context
 
 router = APIRouter(include_in_schema=False)
 
@@ -17,8 +18,9 @@ templates_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".
 templates = Jinja2Templates(directory=templates_dir)
 
 def render_page(request: Request, path_key: str):
-    """Helper to render corporate pages with metadata."""
-    page_data = PAGES_DATA.get(path_key, {})
+    """Helper to render corporate pages with metadata and enriched sub-domain rail."""
+    page_data = dict(PAGES_DATA.get(path_key, {}))
+    page_data = enrich_page_context(path_key, page_data)
     return templates.TemplateResponse(
         request=request,
         name="inner.html",

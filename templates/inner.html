@@ -587,17 +587,122 @@
 
       </div>
 
-      <!-- Right Sidebar Column -->
-      <aside class="inner-sidebar" aria-label="Quick Actions &amp; Navigation">
+      <!-- Right Sidebar Column (Future Developments, Image Cards, Compliance & Telemetry) -->
+      <aside class="inner-sidebar" aria-label="Future Developments, Insights &amp; Navigation">
         
-        <!-- Practice CTA Box -->
+        <!-- 1. FUTURE DEVELOPMENTS & EMERGING TECH ROADMAP -->
+        {% if page_data.future_developments %}
+          <div class="rail-future-dev-card">
+            <div class="rail-dev-badge">
+              <span class="live-dot"></span>
+              <span>{{ page_data.future_developments.badge }}</span>
+            </div>
+            <h3 class="rail-dev-title">{{ page_data.future_developments.headline }}</h3>
+            <p class="rail-dev-lead">{{ page_data.future_developments.lead }}</p>
+            
+            <div class="rail-dev-items">
+              {% for dev in page_data.future_developments.developments %}
+                <div class="rail-dev-item {{ dev.status_class|default('status-deploying') }}">
+                  <div class="rail-dev-item-header">
+                    <span class="rail-dev-item-horizon">
+                      {{ dev.horizon }}
+                    </span>
+                  </div>
+                  <h4 class="rail-dev-item-title">{{ dev.title }}</h4>
+                  <p class="rail-dev-item-desc">{{ dev.desc }}</p>
+                  
+                  {% if dev.tech_stack %}
+                    <div class="rail-dev-item-tags">
+                      {% for tech in dev.tech_stack %}
+                        <span class="rail-dev-tag">{{ tech }}</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+
+                  {% if dev.impact %}
+                    <div class="rail-dev-item-impact">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                      <span>{{ dev.impact }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- 2. ENTERPRISE VISUAL IMAGE CARDS SPOTLIGHT -->
+        {% if page_data.rail_image_cards %}
+          <div class="rail-image-cards-wrap" aria-label="Visual Practice Spotlights">
+            {% for ic in page_data.rail_image_cards %}
+              <div class="rail-image-card">
+                <div class="rail-image-card-media">
+                  <img src="{{ ic.image }}" alt="{{ ic.title }}" class="rail-image-card-img" loading="lazy"/>
+                  <span class="rail-image-card-tag">{{ ic.badge }}</span>
+                </div>
+                <div class="rail-image-card-body">
+                  <h4 class="rail-image-card-title">{{ ic.title }}</h4>
+                  <p class="rail-image-card-desc">{{ ic.caption }}</p>
+                  <div class="rail-image-card-stat">
+                    <span class="rail-image-card-stat-label">{{ ic.stat_label }}</span>
+                    <span class="rail-image-card-stat-val">{{ ic.stat_value }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- 3. COMPLIANCE & REGULATORY STANDARDS MATRIX -->
+        {% if page_data.compliance_standards %}
+          <div class="rail-compliance-card">
+            <h4 class="rail-compliance-title">{{ page_data.compliance_standards.title }}</h4>
+            <ul class="rail-compliance-list">
+              {% for std in page_data.compliance_standards.standards %}
+                <li class="rail-compliance-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <div>
+                    <span class="rail-compliance-name">{{ std.name }}</span>
+                    <p class="rail-compliance-desc">{{ std.desc }}</p>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <!-- 4. LIVE PRACTICE TELEMETRY & SLA ASSURANCE -->
+        {% if page_data.telemetry_metrics %}
+          <div class="rail-telemetry-card">
+            <div class="rail-telemetry-header">
+              <span class="rail-telemetry-title">
+                <span class="live-dot"></span>
+                <span>PRACTICE TELEMETRY &amp; SLA</span>
+              </span>
+              <span style="font-size: 0.6875rem; color: #38BDF8; font-weight: 700;">24/7 CoE</span>
+            </div>
+            <div class="rail-telemetry-grid">
+              {% for m in page_data.telemetry_metrics %}
+                <div class="rail-telemetry-box">
+                  <div class="rail-telemetry-val">{{ m.value }}</div>
+                  <div class="rail-telemetry-label">{{ m.label }}</div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- 5. PRACTICE ADVISORY CTA -->
         <div class="cta-box-sidebar">
-          <h4>Engage Sumeru</h4>
-          <p>Connect with a practice director to evaluate your architecture or discuss delivery scopes.</p>
+          <div style="font-size: 0.6875rem; font-weight: 800; color: #C59B27; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">
+            ENTERPRISE MANDATES
+          </div>
+          <h4 style="margin-top: 0;">Engage Sumeru Practice Leaders</h4>
+          <p>Schedule a confidential consultation with a practice director to evaluate your architecture, scoping, or modernization roadmap.</p>
           <a href="/contact" class="btn btn-primary btn-sm" style="width: 100%;">SCHEDULE CONSULTATION &rarr;</a>
         </div>
 
-        <!-- Practice Quick Links -->
+        <!-- 6. PRACTICE QUICK NAVIGATION -->
         <div class="sidebar-card">
           <h4>Enterprise Services</h4>
           <ul class="sidebar-links-list">
@@ -609,7 +714,6 @@
           </ul>
         </div>
 
-        <!-- Key Industry Solutions -->
         <div class="sidebar-card">
           <h4>Key Verticals</h4>
           <ul class="sidebar-links-list">
@@ -622,7 +726,7 @@
           </ul>
         </div>
 
-        <!-- Direct Contact Snapshot -->
+        <!-- 7. USA HEADQUARTERS SNAPSHOT -->
         <div class="sidebar-card">
           <h4>USA Headquarters</h4>
           <div style="font-size: 0.8125rem; color: #475569; line-height: 1.6;">

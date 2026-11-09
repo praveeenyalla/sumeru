@@ -763,3 +763,556 @@
     max-height: 92vh;
   }
 }
+
+/* ==========================================================================
+   ENTERPRISE ANIMATION OVERLAYS & MICRO-ANIMATIONS
+   Subtle, professional, high-performance CSS animations for landing page
+   ========================================================================== */
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes liveStatusBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+@keyframes streamGlow {
+  0% { filter: drop-shadow(0 0 2px rgba(197, 155, 39, 0.4)); }
+  50% { filter: drop-shadow(0 0 8px rgba(197, 155, 39, 0.9)) drop-shadow(0 0 12px rgba(151, 67, 85, 0.4)); }
+  100% { filter: drop-shadow(0 0 2px rgba(197, 155, 39, 0.4)); }
+}
+
+@keyframes borderGlowPulse {
+  0%, 100% { border-color: rgba(197, 155, 39, 0.25); box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.15); }
+  50% { border-color: rgba(197, 155, 39, 0.6); box-shadow: 0 0 14px rgba(197, 155, 39, 0.25); }
+}
+
+/* Basic positioning utilities */
+.relative { position: relative; }
+.overflow-hidden { overflow: hidden; }
+.z-10 { z-index: 10; }
+
+/* Hero Ambient Animation Overlay */
+.hero-ambient-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 18% 25%, rgba(197, 155, 39, 0.08) 0%, transparent 45%),
+              radial-gradient(circle at 82% 70%, rgba(151, 67, 85, 0.06) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(140, 79, 28, 0.04) 0%, transparent 65%);
+  z-index: 0;
+  animation: gradientShift 14s ease-in-out infinite alternate;
+  background-size: 140% 140%;
+}
+
+/* Subtle Interactive Radar Sweep for Topology & Maps */
+.radar-sweep-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.radar-sweep-scanner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  margin-top: -100%;
+  margin-left: -100%;
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 315deg, rgba(197, 155, 39, 0.15) 360deg);
+  border-radius: 50%;
+  animation: radarSweep 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Live Status Telemetry Dot */
+.live-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #69B531;
+  box-shadow: 0 0 8px rgba(105, 181, 49, 0.8);
+  animation: liveStatusBlink 2s ease-in-out infinite;
+}
+
+.live-status-dot.gold {
+  background-color: #c59b27;
+  box-shadow: 0 0 8px rgba(197, 155, 39, 0.8);
+}
+
+.live-status-dot.crimson {
+  background-color: #974355;
+  box-shadow: 0 0 8px rgba(151, 67, 85, 0.8);
+}
+
+/* Interactive Card Elevation & Sheen */
+.enterprise-card-interactive {
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.enterprise-card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(11, 37, 69, 0.14), 0 0 0 1.5px rgba(197, 155, 39, 0.45);
+}
+
+/* Stream Pulse for SVG Connectors */
+.stream-pulse-active {
+  animation: streamGlow 3.5s ease-in-out infinite;
+}
+
+/* Clean Core Tier Step Hover Accent */
+.clean-core-tier-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-left: 3px solid transparent;
+}
+
+.clean-core-tier-card:hover {
+  transform: translateX(4px);
+  border-left-color: #c59b27;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(11, 37, 69, 0.08);
+}
+
+/* Left Column Contextual Banner Accent */
+.left-col-lead-box {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(235, 244, 250, 0.9) 100%);
+  border-left: 4px solid #1F81C2;
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+}
+
+/* Sub-card Deliverable Checklist Bullet */
+.deliverable-bullet-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.84375rem;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.deliverable-bullet-check svg,
+.deliverable-bullet-check .material-symbols-outlined {
+  flex-shrink: 0;
+  color: #69B531;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   SUB-DOMAIN & INNER PAGE RIGHT RAIL (FUTURE DEVELOPMENTS & IMAGE CARDS)
+   ========================================================================== */
+
+/* Enhanced Sidebar Container */
+.inner-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Future Developments Card */
+.rail-future-dev-card {
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 20px -2px rgba(11, 37, 69, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.rail-future-dev-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1F81C2 0%, #69B531 50%, #C59B27 100%);
+}
+
+.rail-dev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #004A7F;
+  background: #EBF4FA;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.rail-dev-badge .live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+  animation: pulseLiveDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseLiveDot {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.rail-dev-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0B2545;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.rail-dev-lead {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+.rail-dev-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rail-dev-item {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 16px 18px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.rail-dev-item:hover {
+  background: #FFFFFF;
+  border-color: #1F81C2;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -4px rgba(11, 37, 69, 0.1);
+}
+
+/* Status variants for rail items */
+.rail-dev-item.status-deploying {
+  border-left: 3.5px solid #1F81C2;
+}
+.rail-dev-item.status-deploying .rail-dev-item-horizon {
+  background: rgba(31, 129, 194, 0.12);
+  color: #004A7F;
+}
+
+.rail-dev-item.status-pilot {
+  border-left: 3.5px solid #69B531;
+}
+.rail-dev-item.status-pilot .rail-dev-item-horizon {
+  background: rgba(105, 181, 49, 0.14);
+  color: #2F6B12;
+}
+
+.rail-dev-item.status-roadmap {
+  border-left: 3.5px solid #C59B27;
+}
+.rail-dev-item.status-roadmap .rail-dev-item-horizon {
+  background: rgba(197, 155, 39, 0.14);
+  color: #92400E;
+}
+
+.rail-dev-item.status-colab {
+  border-left: 3.5px solid #0B2545;
+}
+.rail-dev-item.status-colab .rail-dev-item-horizon {
+  background: rgba(11, 37, 69, 0.1);
+  color: #0B2545;
+}
+
+.rail-dev-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.rail-dev-item-horizon {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.rail-dev-item-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0B2545;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.rail-dev-item-desc {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.rail-dev-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.rail-dev-tag {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #334155;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.rail-dev-item-impact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2F6B12;
+  background: #E8F7DF;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Image Cards Spotlight in Right Rail */
+.rail-image-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rail-image-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px -2px rgba(11, 37, 69, 0.06);
+  transition: all 0.28s ease;
+}
+
+.rail-image-card:hover {
+  border-color: #1F81C2;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -6px rgba(11, 37, 69, 0.12);
+}
+
+.rail-image-card-media {
+  position: relative;
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+  background: #F1F5F9;
+}
+
+.rail-image-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.rail-image-card:hover .rail-image-card-img {
+  transform: scale(1.05);
+}
+
+.rail-image-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(11, 37, 69, 0.88);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.rail-image-card-body {
+  padding: 20px;
+}
+
+.rail-image-card-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #0B2545;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.rail-image-card-desc {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 14px;
+}
+
+.rail-image-card-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.rail-image-card-stat-label {
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.rail-image-card-stat-val {
+  font-weight: 800;
+  color: #0B2545;
+}
+
+/* Compliance & Certifications Card */
+.rail-compliance-card {
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 16px -2px rgba(11, 37, 69, 0.06);
+}
+
+.rail-compliance-title {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: #0B2545;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #E2E8F0;
+}
+
+.rail-compliance-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.rail-compliance-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.rail-compliance-item svg {
+  flex-shrink: 0;
+  color: #69B531;
+  margin-top: 2px;
+}
+
+.rail-compliance-name {
+  font-size: 0.84375rem;
+  font-weight: 700;
+  color: #0B2545;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.rail-compliance-desc {
+  font-size: 0.75rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Live Telemetry Card */
+.rail-telemetry-card {
+  background: #0B2545;
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 25px -4px rgba(11, 37, 69, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.rail-telemetry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.rail-telemetry-title {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rail-telemetry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.rail-telemetry-box {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.rail-telemetry-val {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #38BDF8;
+  margin-bottom: 2px;
+}
+
+.rail-telemetry-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  line-height: 1.3;
+}
+
+
